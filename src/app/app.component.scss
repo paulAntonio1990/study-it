@@ -1,0 +1,26 @@
+span h1 {
+  padding: 1rem;
+  margin-bottom: 0;
+}
+
+.menu-button {
+  color: white;
+  background: none;
+}
+
+nav a {
+  padding: 1rem 3rem 1rem 3rem;
+  text-decoration: none;
+  display: inline-block;
+  color: white;
+  border-radius: 4px;
+}
+
+nav a:hover {
+  color: white;
+  background-color: #854f9f;
+}
+
+nav a.active {
+  background-color: black;
+}
