@@ -1,1 +1,49 @@
-<p>about works!</p>
+<mat-carousel
+  timings="250ms ease-in"
+  [autoplay]="true"
+  [interval]=5000
+  color="accent"
+  maxWidth="auto"
+  [proportion]=25
+  [loop]="true"
+  [hideArrows]="true"
+  [hideIndicators]="false"
+  [useKeyboard]="true"
+  [useMouseWheel]="false"
+  orientation="ltr"
+>
+  <mat-carousel-slide
+      #matCarouselSlide
+      *ngFor="let slide of slides; let i = index"
+      [image]="slide.image"
+      overlayColor="#00000040"
+      [hideOverlay]="false"
+  ></mat-carousel-slide>
+</mat-carousel>
+
+<div class="jumbotron text-center">
+  <h1>Ce este Study IT?</h1>
+</div>
+
+<div class="container">
+  <div class="row top-margin">
+    <div class="col-md-8">
+      <p class="about-text"><strong>Study IT</strong> este o inițiativă a Study IT Academy și reprezintă o platformă, de tip e-learning, prin intermediul
+        căreia se dorește faclilitarea învățământului, din mediul universitar, la un click distanță, prin intermediul internetului.</p>
+    </div>
+    <div class="col-md-4">
+      <img class="about-img" src="https://www.elearning.ro/wp-content/uploads/2020/06/elearning-necesitate.png" />
+    </div>
+  </div>
+  <div class="row top-margin">
+    <div class="col-md-4">
+      <img class="about-img" src="https://www.gaussbox.net/images/e-learning-system.jpeg" />
+    </div>
+    <div class="col-md-8">
+      <p class="about-text"><strong>Study IT</strong> se dorește a fi o pltformă de tip hibrid, care conține atât materiale cu predare
+        sincronă cât și asincronă. Punem la dispoziția tutorilor posibilitatea de a partaja studenților sesiuni customizate de tutoring.
+      Această platformă vine atât în sprijinul profesorilor, pentru crearea unui mediu propice pentru predare, cât și pentru studenți
+      prin crearea unui mediu dinamic și întârirea relației profesor-student.</p>
+    </div>
+  </div>
+</div>

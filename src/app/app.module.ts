@@ -9,6 +9,7 @@ import {MatIconModule} from "@angular/material/icon";
 import { HomeComponent } from './components/home/home.component';
 import { CoursesDashboardComponent } from './components/courses-dashboard/courses-dashboard.component';
 import { AboutComponent } from './components/about/about.component';
+import {MatCarouselModule} from "@ngmodule/material-carousel";
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { AboutComponent } from './components/about/about.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
+    MatCarouselModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
