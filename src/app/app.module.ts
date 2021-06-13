@@ -10,6 +10,9 @@ import { HomeComponent } from './components/home/home.component';
 import { CoursesDashboardComponent } from './components/courses-dashboard/courses-dashboard.component';
 import { AboutComponent } from './components/about/about.component';
 import {MatCarouselModule} from "@ngmodule/material-carousel";
+import {MatCardModule} from "@angular/material/card";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
 
 @NgModule({
   declarations: [
@@ -24,7 +27,10 @@ import {MatCarouselModule} from "@ngmodule/material-carousel";
     BrowserAnimationsModule,
     MatToolbarModule,
     MatIconModule,
-    MatCarouselModule.forRoot()
+    MatCarouselModule.forRoot(),
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
