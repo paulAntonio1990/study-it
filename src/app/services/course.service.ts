@@ -1,0 +1,18 @@
+import { Injectable } from '@angular/core';
+import {HttpClient} from "@angular/common/http";
+import {Observable} from "rxjs";
+import {CourseDto} from "../domain/courseDto";
+
+@Injectable({
+  providedIn: 'root'
+})
+export class CourseService {
+
+  private readonly serverUrl = 'http://localhost:8080';
+
+  constructor(private readonly httpClient: HttpClient) { }
+
+  getCourses(): Observable<CourseDto[]> {
+    return this.httpClient.get<CourseDto[]>(this.serverUrl + '/course/find-all');
+  }
+}

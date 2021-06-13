@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {CourseDto} from "../../domain/courseDto";
+import {CourseService} from "../../services/course.service";
 
 @Component({
   selector: 'app-courses-dashboard',
@@ -8,40 +9,17 @@ import {CourseDto} from "../../domain/courseDto";
 })
 export class CoursesDashboardComponent implements OnInit {
 
-  courses: CourseDto[] = [
-    {
-      id: 1,
-      name: "First Course",
-      domain: "First Domain",
-      studyProgram: "Licenta",
-      year: 1
-    } as CourseDto,
-    {
-      id: 2,
-      name: "Second Course",
-      domain: "Second Domain",
-      studyProgram: "Licenta",
-      year: 1
-    } as CourseDto,
-    {
-      id: 3,
-      name: "Third Course",
-      domain: "First Domain",
-      studyProgram: "Licenta",
-      year: 2
-    } as CourseDto,
-    {
-      id: 4,
-      name: "Fourth Course",
-      domain: "Third Domain",
-      studyProgram: "Licenta",
-      year: 1
-    } as CourseDto
-  ];
+  courses: CourseDto[] = [];
 
-  constructor() { }
+  constructor(private readonly courseService: CourseService) { }
 
   ngOnInit(): void {
+    this.getCourses();
+  }
+
+  getCourses() {
+    this.courseService.getCourses()
+      .subscribe(courses => this.courses = courses);
   }
 
 }
