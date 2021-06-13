@@ -1,0 +1,18 @@
+<mat-card *ngIf="course" class="course-card">
+  <mat-card-content class="course-card-content">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-5 img-container">
+          <img mat-card-md-image src="https://www.uttarainfo.com/blog/wp-content/uploads/2016/10/data-structure-latest.jpg" alt="Course Photo">
+        </div>
+        <div class="col-sm-7">
+          <mat-card-title>{{course.name}}</mat-card-title>
+          <mat-card-subtitle><label>Titular curs: </label> cineva</mat-card-subtitle>
+          <mat-card-subtitle><label>Domeniu: </label> {{course.domain }}</mat-card-subtitle>
+          <mat-card-subtitle><label>Program de studii: </label> {{course.studyProgram}}</mat-card-subtitle>
+          <mat-card-subtitle><label>An de studii: </label> {{course.year}}</mat-card-subtitle>
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

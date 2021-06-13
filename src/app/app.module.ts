@@ -13,13 +13,15 @@ import {MatCarouselModule} from "@ngmodule/material-carousel";
 import {MatCardModule} from "@angular/material/card";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
+import { CourseCardComponent } from './components/courses-dashboard/course-card/course-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     CoursesDashboardComponent,
-    AboutComponent
+    AboutComponent,
+    CourseCardComponent
   ],
   imports: [
     BrowserModule,
