@@ -15,6 +15,11 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import { CourseCardComponent } from './components/courses-dashboard/course-card/course-card.component';
 import {HttpClientModule} from "@angular/common/http";
+import {MatButtonModule} from "@angular/material/button";
+import {MAT_DIALOG_DEFAULT_OPTIONS, MatDialogModule} from "@angular/material/dialog";
+import { AddCourseDialogComponent } from './components/courses-dashboard/add-course-dialog/add-course-dialog.component';
+import {MatSelectModule} from "@angular/material/select";
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -22,7 +27,8 @@ import {HttpClientModule} from "@angular/common/http";
     HomeComponent,
     CoursesDashboardComponent,
     AboutComponent,
-    CourseCardComponent
+    CourseCardComponent,
+    AddCourseDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -34,9 +40,15 @@ import {HttpClientModule} from "@angular/common/http";
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
-    HttpClientModule
+    HttpClientModule,
+    MatButtonModule,
+    MatDialogModule,
+    MatSelectModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: true}}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
