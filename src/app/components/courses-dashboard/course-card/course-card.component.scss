@@ -37,7 +37,6 @@
         padding: 8px;
       }
     }
-
   }
 }
 
@@ -45,4 +44,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.button-align {
+  margin-left: 1em;
+}
+
+.right-align {
+  text-align: right;
 }

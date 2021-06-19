@@ -1,0 +1,47 @@
+<div class="component-container">
+  <div class="form-container">
+    <form class="form-style" [formGroup]="addCourseFormGroup">
+      <mat-form-field appearance="fill" class="form-child-stretch">
+        <input type="number" matInput placeholder="ID curs ..." formControlName="courseIdControl">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="form-child-stretch">
+        <input formControlName="courseNameControl" matInput placeholder="Denumire curs ...">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="form-child-stretch">
+        <mat-label>Domeniu</mat-label>
+        <mat-select formControlName="courseDomainControl">
+          <mat-option *ngFor="let courseDomain of courseDomains" [value]="courseDomain">
+            {{courseDomain}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="form-child-stretch">
+        <mat-label>Program de studii</mat-label>
+        <mat-select formControlName="courseStudyProgramControl">
+          <mat-option *ngFor="let studyType of studyTypes" [value]="studyType">
+            {{studyType}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="form-child-stretch">
+        <mat-label>An studii</mat-label>
+        <mat-select formControlName="courseYearControl">
+          <mat-option *ngFor="let studyYear of studyYears" [value]="studyYear">
+            {{studyYear}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </form>
+
+    <div mat-dialog-actions>
+      <button mat-button (click)="onClose()">Închide</button>
+      <button mat-button color="primary" (click)="onCreate()" cdkFocusInitial [disabled]="!addCourseFormGroup.valid">Adaugă</button>
+    </div>
+  </div>
+</div>
+
+

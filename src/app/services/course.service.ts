@@ -15,4 +15,8 @@ export class CourseService {
   getCourses(): Observable<CourseDto[]> {
     return this.httpClient.get<CourseDto[]>(this.serverUrl + '/course/find-all');
   }
+
+  createCourse(courseDto: CourseDto): Observable<CourseDto> {
+    return this.httpClient.post<CourseDto>(this.serverUrl + '/course/add-course', courseDto);
+  }
 }
