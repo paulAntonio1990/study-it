@@ -20,6 +20,7 @@ import {MAT_DIALOG_DEFAULT_OPTIONS, MatDialogModule} from "@angular/material/dia
 import { AddCourseDialogComponent } from './components/courses-dashboard/add-course-dialog/add-course-dialog.component';
 import {MatSelectModule} from "@angular/material/select";
 import {ReactiveFormsModule} from "@angular/forms";
+import { ErrorMessageDisplayComponent } from './components/error-message-display/error-message-display.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import {ReactiveFormsModule} from "@angular/forms";
     CoursesDashboardComponent,
     AboutComponent,
     CourseCardComponent,
-    AddCourseDialogComponent
+    AddCourseDialogComponent,
+    ErrorMessageDisplayComponent
   ],
   imports: [
     BrowserModule,

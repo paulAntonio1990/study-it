@@ -5,10 +5,18 @@
         <input type="number" matInput placeholder="ID curs ..." formControlName="courseIdControl">
       </mat-form-field>
 
+      <error-message-display
+        [displayError]="!isControlValid('courseNameControl') && isFormSubmitted"
+        errorMessage="Introduceți denumirea cursului!">
+      </error-message-display>
       <mat-form-field appearance="fill" class="form-child-stretch">
         <input formControlName="courseNameControl" matInput placeholder="Denumire curs ...">
       </mat-form-field>
 
+      <error-message-display
+        [displayError]="!isControlValid('courseDomainControl') && isFormSubmitted"
+        errorMessage="Selectați domeniul!">
+      </error-message-display>
       <mat-form-field appearance="fill" class="form-child-stretch">
         <mat-label>Domeniu</mat-label>
         <mat-select formControlName="courseDomainControl">
@@ -18,6 +26,10 @@
         </mat-select>
       </mat-form-field>
 
+      <error-message-display
+        [displayError]="!isControlValid('courseStudyProgramControl') && isFormSubmitted"
+        errorMessage="Selectați programul de studii!">
+      </error-message-display>
       <mat-form-field appearance="fill" class="form-child-stretch">
         <mat-label>Program de studii</mat-label>
         <mat-select formControlName="courseStudyProgramControl">
@@ -27,6 +39,10 @@
         </mat-select>
       </mat-form-field>
 
+      <error-message-display
+        [displayError]="!isControlValid('courseYearControl') && isFormSubmitted"
+        errorMessage="Selectați anul de studii!">
+      </error-message-display>
       <mat-form-field appearance="fill" class="form-child-stretch">
         <mat-label>An studii</mat-label>
         <mat-select formControlName="courseYearControl">
@@ -39,7 +55,7 @@
 
     <div mat-dialog-actions>
       <button mat-button (click)="onClose()">Închide</button>
-      <button mat-button color="primary" (click)="onCreate()" cdkFocusInitial [disabled]="!addCourseFormGroup.valid">Adaugă</button>
+      <button mat-button color="primary" (click)="onCreate()" cdkFocusInitial>Adaugă</button> <!-- [disabled]="!addCourseFormGroup.valid" -->
     </div>
   </div>
 </div>

@@ -3,9 +3,10 @@ import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {CourseDomain} from "../../../domain/courseDomain";
 import {StudyType} from "../../../domain/studyType";
 import {StudyYear} from "../../../domain/studyYear";
-import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {CourseService} from "../../../services/course.service";
 import {CourseDto} from "../../../domain/courseDto";
+import {FieldValidationServiceService} from "../../../services/field-validation-service.service";
 
 @Component({
   selector: 'add-course-dialog',
@@ -19,12 +20,14 @@ export class AddCourseDialogComponent implements OnInit{
   studyYears = [StudyYear.I, StudyYear.II, StudyYear.III];
 
   addCourseFormGroup : FormGroup;
+  isFormSubmitted = false;
 
   constructor(
     public dialogRef: MatDialogRef<AddCourseDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private formBuilder: FormBuilder,
-    private courseService: CourseService) {
+    private courseService: CourseService,
+    private fieldValidationService: FieldValidationServiceService) {
     this.addCourseFormGroup = this.formBuilder.group({
       courseIdControl: [{value: null, disabled: true}],
       courseNameControl: ['', Validators.required],
@@ -39,29 +42,21 @@ export class AddCourseDialogComponent implements OnInit{
   }
 
   onCreate() {
+    this.isFormSubmitted = true;
     if (this.addCourseFormGroup.valid) {
       const courseDto = this.createDtoFromForm();
 
       this.courseService.createCourse(courseDto).subscribe(createdCourse => {
         if (createdCourse) {
-          this.dialogRef.close()
+          this.dialogRef.close();
         }
       });
     } else {
-      console.log('form not valid!');
+      this.fieldValidationService.validateControls(this.addCourseFormGroup);
     }
   }
 
-  ngOnInit(): void {
-    this.addCourseFormGroup = this.formBuilder.group({
-      courseIdControl: [''],
-      courseNameControl: ['', Validators.required],
-      courseDomainControl: ['', Validators.required],
-      courseStudyProgramControl: ['', Validators.required],
-      courseYearControl: ['', Validators.required]
-    });
-
-  }
+  ngOnInit(): void {  }
 
   private createDtoFromForm() {
     return {
@@ -71,5 +66,9 @@ export class AddCourseDialogComponent implements OnInit{
       studyProgram: this.addCourseFormGroup.get('courseStudyProgramControl')?.value,
       year: this.addCourseFormGroup.get('courseYearControl')?.value
     } as CourseDto;
+  }
+
+  isControlValid(name: string): boolean {
+    return this.fieldValidationService.isValid(name, this.addCourseFormGroup);
   }
 }
