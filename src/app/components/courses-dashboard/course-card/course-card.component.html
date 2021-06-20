@@ -1,5 +1,5 @@
 <mat-card *ngIf="course" class="course-card">
-  <mat-card-content class="course-card-content">
+  <mat-card-content class="course-card-content" (click)="openCoursePreview(course)">
     <div class="container">
       <div class="row">
         <div class="col-sm-5 img-container">

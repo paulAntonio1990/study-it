@@ -3,6 +3,7 @@ import {CourseDto} from "../../../domain/courseDto";
 import {CourseService} from "../../../services/course.service";
 import {MatDialog} from "@angular/material/dialog";
 import {AddCourseDialogComponent} from "../add-course-dialog/add-course-dialog.component";
+import {CoursePreviewDialogComponent} from "../course-preview-dialog/course-preview-dialog.component";
 
 @Component({
   selector: 'course-card',
@@ -11,7 +12,7 @@ import {AddCourseDialogComponent} from "../add-course-dialog/add-course-dialog.c
 })
 export class CourseCardComponent implements OnInit {
 
-  @Input() course?: CourseDto;
+  @Input() course!: CourseDto;
 
   constructor(private courseService: CourseService,
               public dialog: MatDialog) { }
@@ -36,4 +37,13 @@ export class CourseCardComponent implements OnInit {
       });
   }
 
+  openCoursePreview(course: CourseDto) {
+    let dialogRef = this.dialog.open(CoursePreviewDialogComponent, {
+      width: '800px',
+      height: '800px',
+      data: {
+        course: course
+      }
+    })
+  }
 }

@@ -1,0 +1,57 @@
+<div class="component-container">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4">
+        <button [routerLink]="['/courses-dashboard', course.id]"
+                mat-raised-button color="primary" class="subscribe-btn-style"
+        (click)="onSubscribe()">Înscrie-te</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <h1>{{course.name}}</h1>
+        <h2>Descriere</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Integer vehicula, urna ultricies mattis mattis, eros ipsum consequat augue, non pharetra elit mauris at felis.
+          Donec bibendum pretium risus, vel pellentesque orci eleifend vitae.
+          Sed ipsum sem, tristique eget risus in, facilisis euismod ligula.
+          Nam a justo faucibus, consequat massa et, posuere metus. Nunc suscipit erat eget nunc maximus, eu venenatis nibh ullamcorper.
+          Curabitur ut justo feugiat, rhoncus tellus nec, viverra mauris.
+          Pellentesque arcu turpis, fringilla vitae semper in, placerat vel ex.</p>
+
+        <p>Vestibulum quis tempor arcu.
+          Vestibulum ut tincidunt mauris, at ultricies ex.
+          Nulla viverra ipsum at nibh ullamcorper, et tempus quam facilisis.
+          In risus libero, condimentum vel dolor quis, blandit efficitur leo.
+          Vestibulum tempus, justo id vestibulum dignissim, quam ante mollis est, ut convallis neque urna vel sapien.
+          Nullam et facilisis magna, a pretium orci.
+          Maecenas eleifend libero leo, in posuere enim lobortis quis.
+          Nunc feugiat finibus enim, in aliquam lectus elementum in.
+          Duis ultrices ante arcu, non consectetur felis aliquam vel.
+          Pellentesque vestibulum lacus est, eu sagittis felis vehicula nec.
+          Phasellus id mi faucibus, elementum orci non, malesuada metus.
+          Donec tincidunt metus eget velit placerat, fringilla pellentesque justo auctor.
+          Integer suscipit quam eleifend lorem blandit, eu tincidunt odio pretium.</p>
+      </div>
+      <div class="col-sm-6">
+        <h1>Cuprins</h1>
+        <mat-divider></mat-divider>
+        <mat-list>
+          <mat-list-item> 1. Primul capitol </mat-list-item>
+          <mat-list-item> 2. Capitolul 2 </mat-list-item>
+          <mat-list-item> 3. Capitolul 3</mat-list-item>
+          <mat-list-item> 3. Capitolul 4</mat-list-item>
+          <mat-list-item> 3. Capitolul 5</mat-list-item>
+          <mat-list-item> 3. Capitolul 6</mat-list-item>
+          <mat-list-item> 3. Capitolul 7</mat-list-item>
+        </mat-list>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <button mat-button color="primary" class="close-btn-style" (click)="onClose()">Închide</button>
+      </div>
+    </div>
+  </div>
+</div>

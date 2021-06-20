@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 header-container">
+      <div class="header-wrapper">
+        <h1> Course title</h1>
+      </div>
+      <h2>Profesor: Cineva</h2>
+      <h3>Descriere scurta</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 no-padding">
+      <mat-toolbar color="primary" class="course-toolbar">
+        <nav>
+          <a routerLink="./description">Descriere</a>
+          <a routerLink="./content">Cuprins</a>
+          <a routerLink="./tutoring-dashboard">Tutoring</a>
+          <a routerLink="./forum">Forum</a>
+        </nav>
+      </mat-toolbar>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 child-component">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

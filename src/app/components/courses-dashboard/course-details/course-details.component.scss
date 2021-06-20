@@ -1,0 +1,63 @@
+.header-container {
+  padding-top: 8em;
+  position: relative;
+}
+
+.header-container::before {
+  content: ' ';
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.6;
+  background-image: url("https://www.uttarainfo.com/blog/wp-content/uploads/2016/10/data-structure-latest.jpg");
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  background-size: cover;
+}
+
+.header-wrapper {
+  position: relative;
+}
+
+.course-toolbar {
+
+}
+
+.no-padding {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.child-component {
+  padding-left: 0;
+  padding-right: 0;
+  border: 1px solid black;
+  height: 70vh;
+}
+
+nav a {
+  padding: 1rem 3rem 1rem 3rem;
+  text-decoration: none;
+  display: inline-block;
+  color: white;
+  border-radius: 4px;
+}
+
+nav a:hover {
+  color: white;
+  background-color: #854f9f;
+}
+
+nav a:focus {
+  color: white;
+  background-color: #854f9f;
+}
+
+nav a.active {
+  background-color: black;
+}
+
+

@@ -21,6 +21,14 @@ import { AddCourseDialogComponent } from './components/courses-dashboard/add-cou
 import {MatSelectModule} from "@angular/material/select";
 import {ReactiveFormsModule} from "@angular/forms";
 import { ErrorMessageDisplayComponent } from './components/error-message-display/error-message-display.component';
+import { CoursePreviewDialogComponent } from './components/courses-dashboard/course-preview-dialog/course-preview-dialog.component';
+import {MatDividerModule} from "@angular/material/divider";
+import {MatListModule} from "@angular/material/list";
+import { CourseDetailsComponent } from './components/courses-dashboard/course-details/course-details.component';
+import { CourseDescriptionComponent } from './components/courses-dashboard/course-details/course-description/course-description.component';
+import { CourseTutoringDashboardComponent } from './components/courses-dashboard/course-details/course-tutoring-dashboard/course-tutoring-dashboard.component';
+import { CourseForumComponent } from './components/courses-dashboard/course-details/course-forum/course-forum.component';
+import { CourseContentComponent } from './components/courses-dashboard/course-details/course-content/course-content.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +38,13 @@ import { ErrorMessageDisplayComponent } from './components/error-message-display
     AboutComponent,
     CourseCardComponent,
     AddCourseDialogComponent,
-    ErrorMessageDisplayComponent
+    ErrorMessageDisplayComponent,
+    CoursePreviewDialogComponent,
+    CourseDetailsComponent,
+    CourseDescriptionComponent,
+    CourseTutoringDashboardComponent,
+    CourseForumComponent,
+    CourseContentComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +60,9 @@ import { ErrorMessageDisplayComponent } from './components/error-message-display
     MatButtonModule,
     MatDialogModule,
     MatSelectModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDividerModule,
+    MatListModule
   ],
   providers: [
     {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: true}}

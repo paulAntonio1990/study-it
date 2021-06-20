@@ -21,6 +21,11 @@ nav a:hover {
   background-color: #854f9f;
 }
 
+nav a:focus {
+  color: white;
+  background-color: #854f9f;
+}
+
 nav a.active {
   background-color: black;
 }
