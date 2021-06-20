@@ -55,7 +55,8 @@
 
     <div mat-dialog-actions>
       <button mat-button (click)="onClose()">Închide</button>
-      <button mat-button color="primary" (click)="onCreate()" cdkFocusInitial>Adaugă</button> <!-- [disabled]="!addCourseFormGroup.valid" -->
+      <button mat-button color="primary" *ngIf="!existsCourse()" (click)="onCreate()" cdkFocusInitial>Adaugă</button> <!-- [disabled]="!addCourseFormGroup.valid" -->
+      <button mat-button color="primary" *ngIf="existsCourse()" (click)="onEdit()" cdkFocusInitial>Editează</button>
     </div>
   </div>
 </div>

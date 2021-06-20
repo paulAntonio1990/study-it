@@ -13,10 +13,18 @@ export class CourseService {
   constructor(private readonly httpClient: HttpClient) { }
 
   getCourses(): Observable<CourseDto[]> {
-    return this.httpClient.get<CourseDto[]>(this.serverUrl + '/course/find-all');
+    return this.httpClient.get<CourseDto[]>(this.serverUrl + '/courses');
   }
 
   createCourse(courseDto: CourseDto): Observable<CourseDto> {
-    return this.httpClient.post<CourseDto>(this.serverUrl + '/course/add-course', courseDto);
+    return this.httpClient.post<CourseDto>(this.serverUrl + '/courses', courseDto);
+  }
+
+  deleteCourse(courseId: number): Observable<any> {
+    return this.httpClient.delete<any>(`${this.serverUrl}/courses/${courseId}`);
+  }
+
+  findCourseById(courseId: number): Observable<CourseDto> {
+    return this.httpClient.get<CourseDto>(`${this.serverUrl}/courses/${courseId}`);
   }
 }
