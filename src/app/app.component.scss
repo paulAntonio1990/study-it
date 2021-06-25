@@ -8,7 +8,7 @@ span h1 {
   background: none;
 }
 
-nav a {
+nav.left-navbar a {
   padding: 1rem 3rem 1rem 3rem;
   text-decoration: none;
   display: inline-block;
@@ -16,17 +16,17 @@ nav a {
   border-radius: 4px;
 }
 
-nav a:hover {
+nav.left-navbar a:hover {
   color: white;
   background-color: #854f9f;
 }
 
-nav a:focus {
+nav.left-navbar a:focus {
   color: white;
   background-color: #854f9f;
 }
 
-nav a.active {
+nav.left-navbar a.active {
   background-color: black;
 }
 

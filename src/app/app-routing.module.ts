@@ -8,6 +8,9 @@ import {CourseDescriptionComponent} from "./components/courses-dashboard/course-
 import {CourseContentComponent} from "./components/courses-dashboard/course-details/course-content/course-content.component";
 import {CourseTutoringDashboardComponent} from "./components/courses-dashboard/course-details/course-tutoring-dashboard/course-tutoring-dashboard.component";
 import {CourseForumComponent} from "./components/courses-dashboard/course-details/course-forum/course-forum.component";
+import {RegistrationComponent} from "./components/registration/registration.component";
+import {LoginComponent} from "./components/login/login.component";
+import {MyProfileComponent} from "./components/my-profile/my-profile.component";
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -23,7 +26,10 @@ const routes: Routes = [
       {path: 'forum', component: CourseForumComponent}
     ]
   },
-  {path: 'about', component: AboutComponent}
+  {path: 'about', component: AboutComponent},
+  {path: 'register', component: RegistrationComponent},
+  {path: 'login', component: LoginComponent},
+  {path: 'my-profile', component: MyProfileComponent}
 ];
 
 @NgModule({

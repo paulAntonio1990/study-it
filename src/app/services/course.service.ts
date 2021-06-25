@@ -13,7 +13,7 @@ export class CourseService {
   constructor(private readonly httpClient: HttpClient) { }
 
   getCourses(): Observable<CourseDto[]> {
-    return this.httpClient.get<CourseDto[]>(this.serverUrl + '/courses');
+    return this.httpClient.get<CourseDto[]>(this.serverUrl + '/courses/find-all');
   }
 
   createCourse(courseDto: CourseDto): Observable<CourseDto> {

@@ -19,7 +19,7 @@ import {MatButtonModule} from "@angular/material/button";
 import {MAT_DIALOG_DEFAULT_OPTIONS, MatDialogModule} from "@angular/material/dialog";
 import { AddCourseDialogComponent } from './components/courses-dashboard/add-course-dialog/add-course-dialog.component';
 import {MatSelectModule} from "@angular/material/select";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { ErrorMessageDisplayComponent } from './components/error-message-display/error-message-display.component';
 import { CoursePreviewDialogComponent } from './components/courses-dashboard/course-preview-dialog/course-preview-dialog.component';
 import {MatDividerModule} from "@angular/material/divider";
@@ -29,6 +29,10 @@ import { CourseDescriptionComponent } from './components/courses-dashboard/cours
 import { CourseTutoringDashboardComponent } from './components/courses-dashboard/course-details/course-tutoring-dashboard/course-tutoring-dashboard.component';
 import { CourseForumComponent } from './components/courses-dashboard/course-details/course-forum/course-forum.component';
 import { CourseContentComponent } from './components/courses-dashboard/course-details/course-content/course-content.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegistrationComponent } from './components/registration/registration.component';
+import {authenticationInterceptorProviders} from "./helpers/authentication.interceptor";
+import { MyProfileComponent } from './components/my-profile/my-profile.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +48,10 @@ import { CourseContentComponent } from './components/courses-dashboard/course-de
     CourseDescriptionComponent,
     CourseTutoringDashboardComponent,
     CourseForumComponent,
-    CourseContentComponent
+    CourseContentComponent,
+    LoginComponent,
+    RegistrationComponent,
+    MyProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -62,10 +69,12 @@ import { CourseContentComponent } from './components/courses-dashboard/course-de
     MatSelectModule,
     ReactiveFormsModule,
     MatDividerModule,
-    MatListModule
+    MatListModule,
+    FormsModule
   ],
   providers: [
-    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: true}}
+    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: true}},
+    authenticationInterceptorProviders
   ],
   bootstrap: [AppComponent]
 })

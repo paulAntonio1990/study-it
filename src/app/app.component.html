@@ -1,14 +1,19 @@
 <mat-toolbar color="primary" class="app-toolbar">
-  <button mat-button class="menu-button" aria-label="Example icon-button with menu icon">
-    <mat-icon>menu</mat-icon>
-  </button>
   <span>
     <h1>{{title}}</h1>
   </span>
-  <nav>
+  <nav class="left-navbar">
     <a routerLink="/home">Acasa</a>
-    <a routerLink="/courses-dashboard">Cursuri</a>
+    <a *ngIf="isLoggedIn" routerLink="/courses-dashboard">Cursuri</a>
     <a routerLink="/about">Despre</a>
+  </nav>
+  <nav *ngIf="!isLoggedIn">
+    <a href="/register" class="nav-link" routerLink="register">Înregistrează-te</a>
+    <a href="/login" class="nav-link" routerLink="login">Login</a>
+  </nav>
+  <nav *ngIf="isLoggedIn">
+    <a href="/my-profile" class="nav-link" routerLink="my-profile">{{ username }}</a>
+    <a href class="nav-link" (click)="logout()">LogOut</a>
   </nav>
 </mat-toolbar>
 <router-outlet></router-outlet>
