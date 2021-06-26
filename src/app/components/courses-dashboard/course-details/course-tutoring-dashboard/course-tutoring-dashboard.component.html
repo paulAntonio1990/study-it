@@ -7,4 +7,9 @@
       </button>
     </div>
   </div>
+  <div class="row" *ngFor="let tutoringSession of course.tutoringSessionDtos">
+    <div class="col-sm-12">
+      <tutoring-session-card [tutoringSession]="tutoringSession"></tutoring-session-card>
+    </div>
+  </div>
 </div>

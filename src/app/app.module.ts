@@ -33,6 +33,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import {authenticationInterceptorProviders} from "./helpers/authentication.interceptor";
 import { MyProfileComponent } from './components/my-profile/my-profile.component';
+import { TutoringSessionCardComponent } from './components/courses-dashboard/course-details/course-tutoring-dashboard/tutoring-session-card/tutoring-session-card.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { MyProfileComponent } from './components/my-profile/my-profile.component
     CourseContentComponent,
     LoginComponent,
     RegistrationComponent,
-    MyProfileComponent
+    MyProfileComponent,
+    TutoringSessionCardComponent
   ],
   imports: [
     BrowserModule,

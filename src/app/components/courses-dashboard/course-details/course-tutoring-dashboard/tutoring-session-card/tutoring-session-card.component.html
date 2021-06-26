@@ -1,0 +1,19 @@
+<mat-card *ngIf="tutoringSession" class="session-card">
+  <mat-card-content class="session-card-content" (click)="openSession()">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-3 img-container">
+          <img mat-card-md-image src="/assets/img/tutoring-session.jpg" alt="Tutoring Session Photo">
+        </div>
+        <div class="col-sm-9 card-content-container">
+          <mat-card-title class="center-title">{{tutoringSession.name}}</mat-card-title>
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
+  <mat-card-footer class="right-align">
+    <button (click)="onDelete(tutoringSession)" mat-raised-button color="warn" class="button-align">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </mat-card-footer>
+</mat-card>
