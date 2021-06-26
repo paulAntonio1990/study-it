@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {TutoringSessionDto} from "../../../../../domain/tutoringSessionDto";
 import {TutoringSessionService} from "../../../../../services/tutoring-session.service";
+import {CourseDto} from "../../../../../domain/courseDto";
 
 @Component({
   selector: 'tutoring-session-card',
@@ -9,9 +10,10 @@ import {TutoringSessionService} from "../../../../../services/tutoring-session.s
 })
 export class TutoringSessionCardComponent implements OnInit {
 
+  @Input() course!: CourseDto;
   @Input() tutoringSession!: TutoringSessionDto;
 
-  constructor() {
+  constructor(private tutoringService: TutoringSessionService) {
   }
 
   ngOnInit(): void {
@@ -22,6 +24,13 @@ export class TutoringSessionCardComponent implements OnInit {
   }
 
   onDelete(tutoringSession: TutoringSessionDto) {
-    console.log('delete session!');
+    this.tutoringService.deleteById(tutoringSession.id)
+      .subscribe(() =>{
+        this.reloadPage();
+      })
+  }
+
+  reloadPage() {
+    window.location.reload();
   }
 }

@@ -1,0 +1,19 @@
+<div class="component-container">
+  <div class="form-container">
+    <form class="form-style" [formGroup]="addTutoringSessionFormGroup">
+
+      <error-message-display
+        [displayError]="!isControlValid('sessionNameControl') && isFormSubmitted"
+        errorMessage="Introduceți denumirea sesiunii!">
+      </error-message-display>
+      <mat-form-field appearance="fill" class="form-child-stretch">
+        <input formControlName="sessionNameControl" matInput placeholder="Denumire sesiune ...">
+      </mat-form-field>
+    </form>
+
+    <div mat-dialog-actions>
+      <button mat-button (click)="onClose()">Închide</button>
+      <button mat-button color="primary" (click)="onCreate()" cdkFocusInitial>Adaugă</button>
+    </div>
+  </div>
+</div>

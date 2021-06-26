@@ -17,6 +17,10 @@ export class TutoringSessionService {
   }
 
   findAllByCourseId(courseId: number): Observable<TutoringSessionDto[]> {
-    return this.httpClient.get<TutoringSessionDto[]>(`${this.serverUrl}/all-by-course/${courseId}`);
+    return this.httpClient.get<TutoringSessionDto[]>(`${this.serverUrl}/tutoring-sessions/all-by-course/${courseId}`);
+  }
+
+  deleteById(sessionId: number): Observable<any> {
+    return this.httpClient.delete<any>(`${this.serverUrl}/tutoring-sessions/${sessionId}`)
   }
 }

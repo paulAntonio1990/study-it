@@ -1,4 +1,7 @@
+import {CourseDto} from "./courseDto";
+
 export interface TutoringSessionDto {
   id: number,
-  name: string
+  name: string;
+  course: CourseDto
 }

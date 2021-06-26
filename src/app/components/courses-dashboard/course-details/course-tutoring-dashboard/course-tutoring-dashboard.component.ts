@@ -4,6 +4,8 @@ import {CourseDto} from "../../../../domain/courseDto";
 import {CourseService} from "../../../../services/course.service";
 import {TutoringSessionService} from "../../../../services/tutoring-session.service";
 import {TutoringSessionDto} from "../../../../domain/tutoringSessionDto";
+import {MatDialog} from "@angular/material/dialog";
+import {AddTutoringSessionDialogComponent} from "./add-tutoring-session-dialog/add-tutoring-session-dialog.component";
 
 @Component({
   selector: 'app-course-tutoring-dashboard',
@@ -16,7 +18,8 @@ export class CourseTutoringDashboardComponent implements OnInit {
 
   constructor(private router: Router,
               private courseService: CourseService,
-              private tutoringSessionService: TutoringSessionService) {
+              private tutoringSessionService: TutoringSessionService,
+              public dialog: MatDialog) {
 
   }
 
@@ -29,7 +32,18 @@ export class CourseTutoringDashboardComponent implements OnInit {
   }
 
   addTutoringSession() {
-    console.log('addTutoringSession');
+    let matDialogRef = this.dialog.open(AddTutoringSessionDialogComponent,{
+      width: '400px',
+      height: '400px',
+      data: {
+        course: this.course
+      }
+    });
+
+    matDialogRef.afterClosed().subscribe(() => {
+      window.location.reload();
+    })
+
   }
 
   private getCourseIdFromUrl() {
