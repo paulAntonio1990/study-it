@@ -12,4 +12,7 @@ export class CourseTutoringDashboardComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  addTutoringSession() {
+    console.log('addTutoringSession');
+  }
 }

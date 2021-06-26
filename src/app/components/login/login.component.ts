@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {AuthenticationService} from "../../services/authentication.service";
 import {TokenHandlingService} from "../../services/token-handling.service";
 import {LoginRequestDto} from "../../domain/loginRequestDto";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -20,12 +21,12 @@ export class LoginComponent implements OnInit {
   role: string = '';
 
   constructor(private authenticationService: AuthenticationService,
-              private tokenHandler: TokenHandlingService) { }
+              private tokenHandler: TokenHandlingService,
+              private router: Router) { }
 
   ngOnInit(): void {
     if (this.tokenHandler.getToken()) {
       this.isLoggedIn = true;
-      console.log('ehllo = ', this.tokenHandler.getUser());
       this.role = this.tokenHandler.getUser().roles;
     }
   }
@@ -45,7 +46,7 @@ export class LoginComponent implements OnInit {
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.role = this.tokenHandler.getUser().role;
-        this.reloadPage();
+        this.redirectToHomePage()
       },
       err => {
         this.errorMessage = err.error.message;
@@ -58,4 +59,7 @@ export class LoginComponent implements OnInit {
     window.location.reload();
   }
 
+  private redirectToHomePage() {
+    this.router.navigate(['/home']).then(() => window.location.reload());
+  }
 }

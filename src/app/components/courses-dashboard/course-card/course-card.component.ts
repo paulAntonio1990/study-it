@@ -22,7 +22,7 @@ export class CourseCardComponent implements OnInit {
 
   onDelete(course: CourseDto) {
     this.courseService.deleteCourse(course.id).subscribe(data => {
-      console.log('deleted');
+      this.reloadPage();
     })
   }
 
@@ -35,6 +35,10 @@ export class CourseCardComponent implements OnInit {
           course: course
         }
       });
+
+    dialogRef.afterClosed().subscribe(() => {
+      this.reloadPage();
+    })
   }
 
   openCoursePreview(course: CourseDto) {
@@ -45,5 +49,9 @@ export class CourseCardComponent implements OnInit {
         course: course
       }
     })
+  }
+
+  reloadPage() {
+    window.location.reload();
   }
 }

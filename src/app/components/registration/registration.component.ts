@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthenticationService} from "../../services/authentication.service";
 import {SignupRequestDto} from "../../domain/signupRequestDto";
+import {RoleType} from "../../domain/roleType";
 
 @Component({
   selector: 'app-registration',
@@ -11,6 +12,7 @@ export class RegistrationComponent implements OnInit {
 
   form: any = {
     username: null,
+    role: null,
     email: null,
     password: null
   };
@@ -18,15 +20,18 @@ export class RegistrationComponent implements OnInit {
   isSignUpFailed = false;
   errorMessage = '';
 
+  roles = [RoleType.STUDENT, RoleType.PROFESTOR];
+
   constructor(private authenticationService: AuthenticationService) { }
 
   ngOnInit(): void {
   }
 
   onSubmit(): void {
-    const  { username, email, password } = this.form;
+    const  { username, role, email, password } = this.form;
     const registerRequest = {
       userName: username,
+      role: role,
       email: email,
       password: password
     } as SignupRequestDto;

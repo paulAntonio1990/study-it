@@ -35,3 +35,29 @@ nav.left-navbar a.active {
   top: 0;
   z-index: 1000;
 }
+
+
+nav.right-navbar a {
+  padding: 1rem 3rem 1rem 3rem;
+  text-decoration: none;
+  display: inline-block;
+  color: white;
+  border-radius: 4px;
+}
+
+nav.right-navbar a:hover {
+  color: white;
+  background-color: #854f9f;
+}
+
+nav.right-navbar a:focus {
+  color: white;
+  background-color: #854f9f;
+}
+
+nav.right-navbar a.active {
+  background-color: black;
+}
+
+
+

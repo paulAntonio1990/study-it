@@ -34,5 +34,9 @@ export class CoursesDashboardComponent implements OnInit {
           course: null
         }
       });
+
+    dialogRef.afterClosed().subscribe(() => {
+      window.location.reload();
+    })
   }
 }

@@ -7,11 +7,11 @@
     <a *ngIf="isLoggedIn" routerLink="/courses-dashboard">Cursuri</a>
     <a routerLink="/about">Despre</a>
   </nav>
-  <nav *ngIf="!isLoggedIn">
+  <nav class="right-navbar" *ngIf="!isLoggedIn">
     <a href="/register" class="nav-link" routerLink="register">Înregistrează-te</a>
     <a href="/login" class="nav-link" routerLink="login">Login</a>
   </nav>
-  <nav *ngIf="isLoggedIn">
+  <nav class="right-navbar" *ngIf="isLoggedIn">
     <a href="/my-profile" class="nav-link" routerLink="my-profile">{{ username }}</a>
     <a href class="nav-link" (click)="logout()">LogOut</a>
   </nav>

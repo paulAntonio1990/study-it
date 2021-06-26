@@ -35,6 +35,21 @@
         </div>
       </div>
       <div class="form-group">
+        <label>Rol</label>
+        <select id="branch" name="role"
+                [(ngModel)]="form.role"
+                required
+                role
+                class="form-control"
+                #role="ngModel">
+          <option *ngFor="let role of roles" value="{{role}}">{{role | uppercase}}</option>
+        </select>
+        <div class="alert-danger" *ngIf="role.errors && f.submitted">
+          <div *ngIf="role.errors.required">Role is required</div>
+        </div>
+      </div>
+
+      <div class="form-group">
         <label>Email</label>
         <input
           type="email"
