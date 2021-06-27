@@ -35,6 +35,7 @@ import {authenticationInterceptorProviders} from "./helpers/authentication.inter
 import { MyProfileComponent } from './components/my-profile/my-profile.component';
 import { TutoringSessionCardComponent } from './components/courses-dashboard/course-details/course-tutoring-dashboard/tutoring-session-card/tutoring-session-card.component';
 import { AddTutoringSessionDialogComponent } from './components/courses-dashboard/course-details/course-tutoring-dashboard/add-tutoring-session-dialog/add-tutoring-session-dialog.component';
+import { CourseNameFilterPipe } from './pipes/course-name-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { AddTutoringSessionDialogComponent } from './components/courses-dashboar
     RegistrationComponent,
     MyProfileComponent,
     TutoringSessionCardComponent,
-    AddTutoringSessionDialogComponent
+    AddTutoringSessionDialogComponent,
+    CourseNameFilterPipe
   ],
   imports: [
     BrowserModule,
@@ -80,6 +82,7 @@ import { AddTutoringSessionDialogComponent } from './components/courses-dashboar
     {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: true}},
     authenticationInterceptorProviders
   ],
+  exports:[CourseNameFilterPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -12,6 +12,7 @@ import {AddCourseDialogComponent} from "./add-course-dialog/add-course-dialog.co
 export class CoursesDashboardComponent implements OnInit {
 
   courses: CourseDto[] = [];
+  courseNameFilter!: string;
 
   constructor(private readonly courseService: CourseService,
               public dialog: MatDialog) { }

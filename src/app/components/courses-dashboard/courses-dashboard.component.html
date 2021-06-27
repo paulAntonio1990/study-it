@@ -3,7 +3,11 @@
     <div class="col-sm-12">
       <form class="search-courses-form">
         <mat-form-field class="search-courses-input">
-          <input type="search" matInput placeholder="Căutare cursuri ...">
+          <input type="search"
+                 [(ngModel)]="courseNameFilter"
+                 [ngModelOptions]="{standalone: true}"
+                 matInput
+                 placeholder="Căutare cursuri ..." >
         </mat-form-field>
       </form>
     </div>
@@ -15,7 +19,7 @@
       </button>
     </div>
   </div>
-  <div class="row" *ngFor="let course of courses">
+  <div class="row" *ngFor="let course of courses | courseNameFilter : courseNameFilter">
     <div class="col-sm-12">
       <course-card [course]="course"></course-card>
     </div>
