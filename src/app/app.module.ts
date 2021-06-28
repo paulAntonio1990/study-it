@@ -36,6 +36,7 @@ import { MyProfileComponent } from './components/my-profile/my-profile.component
 import { TutoringSessionCardComponent } from './components/courses-dashboard/course-details/course-tutoring-dashboard/tutoring-session-card/tutoring-session-card.component';
 import { AddTutoringSessionDialogComponent } from './components/courses-dashboard/course-details/course-tutoring-dashboard/add-tutoring-session-dialog/add-tutoring-session-dialog.component';
 import { CourseNameFilterPipe } from './pipes/course-name-filter.pipe';
+import { TutoringSessionComponent } from './components/courses-dashboard/course-details/course-tutoring-dashboard/tutoring-session/tutoring-session.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { CourseNameFilterPipe } from './pipes/course-name-filter.pipe';
     MyProfileComponent,
     TutoringSessionCardComponent,
     AddTutoringSessionDialogComponent,
-    CourseNameFilterPipe
+    CourseNameFilterPipe,
+    TutoringSessionComponent
   ],
   imports: [
     BrowserModule,

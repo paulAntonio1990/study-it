@@ -11,6 +11,7 @@ import {CourseForumComponent} from "./components/courses-dashboard/course-detail
 import {RegistrationComponent} from "./components/registration/registration.component";
 import {LoginComponent} from "./components/login/login.component";
 import {MyProfileComponent} from "./components/my-profile/my-profile.component";
+import {TutoringSessionComponent} from "./components/courses-dashboard/course-details/course-tutoring-dashboard/tutoring-session/tutoring-session.component";
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -26,6 +27,7 @@ const routes: Routes = [
       {path: 'forum', component: CourseForumComponent}
     ]
   },
+  {path: 'tutoring-dashboard/:sessionId', component: TutoringSessionComponent}, //todo
   {path: 'about', component: AboutComponent},
   {path: 'register', component: RegistrationComponent},
   {path: 'login', component: LoginComponent},
