@@ -27,11 +27,11 @@
           role="alert"
           *ngIf="username.errors && f.submitted"
         >
-          Username is required!
+          Username-ul e obligatoriu!
         </div>
       </div>
       <div class="form-group">
-        <label>Password</label>
+        <label>Parola</label>
         <input
           type="password"
           class="form-control"
@@ -46,9 +46,9 @@
           role="alert"
           *ngIf="password.errors && f.submitted"
         >
-          <div *ngIf="password.errors.required">Password is required</div>
+          <div *ngIf="password.errors.required">Parola e obligatorie!</div>
           <div *ngIf="password.errors.minlength">
-            Password must be at least 6 characters
+            Parola trebuie sa contina minim 4 caractere!
           </div>
         </div>
       </div>
@@ -63,13 +63,13 @@
           role="alert"
           *ngIf="f.submitted && isLoginFailed"
         >
-          Login failed: {{ errorMessage }}
+          Login eșuat: {{ errorMessage }}
         </div>
       </div>
     </form>
 
     <div class="alert alert-success" *ngIf="isLoggedIn">
-      Logged in as {{ role }}.
+      Logat cu rolul {{ role }}.
     </div>
   </div>
 </div>

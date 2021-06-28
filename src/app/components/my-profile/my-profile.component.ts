@@ -13,7 +13,9 @@ export class MyProfileComponent implements OnInit {
   constructor(private tokenHandler: TokenHandlingService) { }
 
   ngOnInit(): void {
+
     this.loggedUser = this.tokenHandler.getUser();
+    console.log("aici = ", this.loggedUser);
   }
 
 }

@@ -25,12 +25,12 @@
           #username="ngModel"
         />
         <div class="alert-danger" *ngIf="username.errors && f.submitted">
-          <div *ngIf="username.errors.required">Username is required</div>
+          <div *ngIf="username.errors.required">Username-ul e obligatoriu!</div>
           <div *ngIf="username.errors.minlength">
-            Username must be at least 3 characters
+            Username-ul trebuie sa conțina minim 3 caractere!
           </div>
           <div *ngIf="username.errors.maxlength">
-            Username must be at most 20 characters
+            Username-ul trebuie sa conțina maxim 20 caractere!
           </div>
         </div>
       </div>
@@ -45,7 +45,7 @@
           <option *ngFor="let role of roles" value="{{role}}">{{role | uppercase}}</option>
         </select>
         <div class="alert-danger" *ngIf="role.errors && f.submitted">
-          <div *ngIf="role.errors.required">Role is required</div>
+          <div *ngIf="role.errors.required">Rolul este obligatoriu!</div>
         </div>
       </div>
 
@@ -61,9 +61,9 @@
           #email="ngModel"
         />
         <div class="alert-danger" *ngIf="email.errors && f.submitted">
-          <div *ngIf="email.errors.required">Email is required</div>
+          <div *ngIf="email.errors.required">Email-ul e obligatoriu!</div>
           <div *ngIf="email.errors.email">
-            Email must be a valid email address
+            Email invalid!
           </div>
         </div>
       </div>
@@ -75,13 +75,13 @@
           name="password"
           [(ngModel)]="form.password"
           required
-          minlength="6"
+          minlength="4"
           #password="ngModel"
         />
         <div class="alert-danger" *ngIf="password.errors && f.submitted">
-          <div *ngIf="password.errors.required">Password is required</div>
+          <div *ngIf="password.errors.required">Parola e obligatorie!</div>
           <div *ngIf="password.errors.minlength">
-            Password must be at least 6 characters
+            Parola trebuie sa contina minim 4 caractere!
           </div>
         </div>
       </div>
@@ -90,12 +90,12 @@
       </div>
 
       <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
-        Signup failed!<br />{{ errorMessage }}
+        Înregistrare eșuată!<br />{{ errorMessage }}
       </div>
     </form>
 
     <div class="alert alert-success" *ngIf="isSuccessful">
-      Your registration is successful!
+      Înregistrare cu succes!
     </div>
   </div>
 </div>

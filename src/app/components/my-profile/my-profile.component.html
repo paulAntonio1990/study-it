@@ -1,19 +1,28 @@
 <div class="container" *ngIf="loggedUser; else loggedOut">
-  <header class="jumbotron">
-    <h3>
-      <strong>{{ loggedUser.username }}</strong> Profile
-    </h3>
-  </header>
-  <p>
-    <strong>Email:</strong>
-    {{ loggedUser.email }}
-  </p>
-  <p>
-    <strong>Role:</strong>
-    {{ loggedUser.role}}
-  </p>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="jumbotron">
+        <h1><strong>Pagină de profil</strong></h1>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 margins">
+      <label class="dimensioning"><strong>Utilizator: </strong></label><span> {{ loggedUser.userName }}</span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 margins">
+      <label class="dimensioning"><strong>Email: </strong></label><span> {{ loggedUser.email }}</span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 margins">
+      <label class="dimensioning"><strong>Rol: </strong></label><span> {{ loggedUser.role}}</span>
+    </div>
+  </div>
 </div>
 
 <ng-template #loggedOut>
-  Please login.
+  Avansați către login.
 </ng-template>
