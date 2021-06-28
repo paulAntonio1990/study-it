@@ -1,20 +1,33 @@
-<div *ngFor="let message of messages">
-  <div class="container">
-    <p>{{message}}</p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+<!--      <h2>Sesiune tutoring: {{tutoringSession.name}}</h2>-->
+    </div>
   </div>
+  <form #loginForm=ngForm>
+    <div class="row margin-top">
+      <div class="col-md-10">
+        <textarea
+          class="form-control"
+          autocomplete="off"
+          placeholder="Introduceți mesajul ..."
+          name="newMessage"
+          [(ngModel)]="newMessage"
+          required>
+        </textarea>
+      </div>
+
+      <div class="col-md-2">
+        <button class="btn btn-primary" (click)="sendMessage()"
+                [disabled]="!loginForm.valid">Send
+        </button>
+      </div>
+    </div>
+    <div class="row margin-top"
+         *ngFor="let message of sessionMessages">
+      <div class="col-sm-12">
+        <p><strong>{{message.user.userName}}:</strong> {{message.message}}, {{message.date | date:'medium'}}</p>
+      </div>
+    </div>
+  </form>
 </div>
-
-<form #loginForm=ngForm>
-  <div>
-    <br>
-    <textarea autocomplete="off"
-              placeholder="Introduceți mesajul ..."
-              name="newMessage"
-              [(ngModel)]="newMessage"
-              required>
-    </textarea>
-
-    <button class="btn btn-primary" (click)="sendMessage()"
-            [disabled]="!loginForm.valid">Send</button>
-  </div>
-</form>

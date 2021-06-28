@@ -1,4 +1,7 @@
-<mat-card *ngIf="tutoringSession" class="session-card" [routerLink]="['/tutoring-dashboard', tutoringSession.id]">
+<mat-card *ngIf="tutoringSession"
+          class="session-card"
+          [routerLink]="['/tutoring-dashboard', tutoringSession.id]"
+          [state]="{data: tutoringSession}">
   <mat-card-content class="session-card-content" (click)="openSession()">
     <div class="container">
       <div class="row">
