@@ -45,7 +45,7 @@ export class CoursesDashboardComponent implements OnInit {
     let dialogRef = this.dialog.open(AddCourseDialogComponent,
       {
         width: '600px',
-        height: '600px',
+        height: '800px',
         data: {
           course: null
         }

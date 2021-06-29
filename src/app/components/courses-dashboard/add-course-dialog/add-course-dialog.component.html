@@ -51,6 +51,24 @@
           </mat-option>
         </mat-select>
       </mat-form-field>
+
+      <error-message-display
+        [displayError]="!isControlValid('courseShortDescriptionControl') && isFormSubmitted"
+        errorMessage="Introduceți o descriere!">
+      </error-message-display>
+      <mat-form-field class="form-child-stretch" appearance="fill">
+        <mat-label>Descriere scurta</mat-label>
+        <textarea formControlName="courseShortDescriptionControl" matInput></textarea>
+      </mat-form-field>
+
+      <error-message-display
+        [displayError]="!isControlValid('courseLongDescriptionControl') && isFormSubmitted"
+        errorMessage="Introduceți o descriere!">
+      </error-message-display>
+      <mat-form-field class="form-child-stretch" appearance="fill">
+        <mat-label>Descriere lungă</mat-label>
+        <textarea formControlName="courseLongDescriptionControl" matInput></textarea>
+      </mat-form-field>
     </form>
 
     <div mat-dialog-actions>

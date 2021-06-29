@@ -41,7 +41,9 @@ export class AddCourseDialogComponent implements OnInit{
       courseNameControl: ['', Validators.required],
       courseDomainControl: ['', Validators.required],
       courseStudyProgramControl: ['', Validators.required],
-      courseYearControl: ['', Validators.required]
+      courseYearControl: ['', Validators.required],
+      courseShortDescriptionControl: ['', Validators.required],
+      courseLongDescriptionControl: ['', Validators.required]
     });
   }
 
@@ -83,6 +85,10 @@ export class AddCourseDialogComponent implements OnInit{
       year: this.addCourseFormGroup.get('courseYearControl')?.value,
       creator: {
         id: this.tokenHandlingService.getUser().id
+      },
+      content: {
+        shortDescription: this.addCourseFormGroup.get('courseShortDescriptionControl')?.value,
+        longDescription: this.addCourseFormGroup.get('courseLongDescriptionControl')?.value
       }
     } as CourseDto;
   }
@@ -97,7 +103,9 @@ export class AddCourseDialogComponent implements OnInit{
       courseNameControl: this.course.name,
       courseDomainControl: this.course.domain,
       courseStudyProgramControl: this.course.studyProgram,
-      courseYearControl: this.course.year
+      courseYearControl: this.course.year,
+      courseShortDescriptionControl: this.course.content?.shortDescription,
+      courseLongDescriptionControl: this.course.content?.longDescription
     };
     this.addCourseFormGroup.reset(formValue);
   }
