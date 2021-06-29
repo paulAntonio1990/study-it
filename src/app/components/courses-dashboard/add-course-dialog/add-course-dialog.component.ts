@@ -8,6 +8,7 @@ import {CourseService} from "../../../services/course.service";
 import {CourseDto} from "../../../domain/courseDto";
 import {FieldValidationServiceService} from "../../../services/field-validation-service.service";
 import {tap} from "rxjs/operators";
+import {TokenHandlingService} from "../../../services/token-handling.service";
 
 @Component({
   selector: 'add-course-dialog',
@@ -29,7 +30,8 @@ export class AddCourseDialogComponent implements OnInit{
     @Inject(MAT_DIALOG_DATA) public data: any,
     private formBuilder: FormBuilder,
     private courseService: CourseService,
-    private fieldValidationService: FieldValidationServiceService) {
+    private fieldValidationService: FieldValidationServiceService,
+    private tokenHandlingService: TokenHandlingService) {
     this.initForm();
   }
 
@@ -78,7 +80,10 @@ export class AddCourseDialogComponent implements OnInit{
       name: this.addCourseFormGroup.get('courseNameControl')?.value,
       domain: this.addCourseFormGroup.get('courseDomainControl')?.value,
       studyProgram: this.addCourseFormGroup.get('courseStudyProgramControl')?.value,
-      year: this.addCourseFormGroup.get('courseYearControl')?.value
+      year: this.addCourseFormGroup.get('courseYearControl')?.value,
+      creator: {
+        id: this.tokenHandlingService.getUser().id
+      }
     } as CourseDto;
   }
 

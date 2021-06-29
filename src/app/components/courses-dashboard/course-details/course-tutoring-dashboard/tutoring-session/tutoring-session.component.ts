@@ -30,7 +30,6 @@ export class TutoringSessionComponent implements OnInit {
     this.connect();
     this.sessionMessageService.findAllBySessionId(this.getSessionIdFromUrl())
       .subscribe( messages => this.sessionMessages = messages);
-    console.log(history.state.data);
   }
 
   connect() {

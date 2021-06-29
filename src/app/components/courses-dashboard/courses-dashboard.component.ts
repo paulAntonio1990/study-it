@@ -80,7 +80,6 @@ export class CoursesDashboardComponent implements OnInit {
   }
 
   onFilterChange($event: MatSelectChange) {
-    console.log($event);
     this.generateFilter($event);
 
     this.courses = this.tmpCourses.filter((c: any) => this.filters.every(filter => c[filter.type] === filter.name));
