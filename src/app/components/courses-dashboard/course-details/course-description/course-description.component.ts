@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {CourseService} from "../../../../services/course.service";
+import {Router} from "@angular/router";
+import {CourseDto} from "../../../../domain/courseDto";
 
 @Component({
   selector: 'app-course-description',
@@ -7,9 +10,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CourseDescriptionComponent implements OnInit {
 
-  constructor() { }
+  course!: CourseDto;
+
+  constructor(private courseService: CourseService,
+              private router: Router) { }
 
   ngOnInit(): void {
+    const courseId = this.getCourseIdFromUrl();
+    this.courseService.findCourseById(+courseId)
+      .subscribe(course => {
+        this.course = course
+      });
+  }
+
+  private getCourseIdFromUrl() {
+    return this.router.url.split("/")[2];
   }
 
 }

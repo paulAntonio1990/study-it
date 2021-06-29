@@ -20,7 +20,6 @@ export class CourseTutoringDashboardComponent implements OnInit {
               private courseService: CourseService,
               private tutoringSessionService: TutoringSessionService,
               public dialog: MatDialog) {
-
   }
 
   ngOnInit(): void {
