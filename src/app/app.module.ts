@@ -40,6 +40,7 @@ import { TutoringSessionComponent } from './components/courses-dashboard/course-
 import { UsersDashboardComponent } from './components/users-dashboard/users-dashboard.component';
 import { ContactRequestsDashboardComponent } from './components/contact-requests-dashboard/contact-requests-dashboard.component';
 import {AgGridModule} from "ag-grid-angular";
+import {MatStepperModule} from "@angular/material/stepper";
 
 @NgModule({
   declarations: [
@@ -84,7 +85,8 @@ import {AgGridModule} from "ag-grid-angular";
     ReactiveFormsModule,
     MatDividerModule,
     MatListModule,
-    FormsModule
+    FormsModule,
+    MatStepperModule
   ],
   providers: [
     {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: true}},
