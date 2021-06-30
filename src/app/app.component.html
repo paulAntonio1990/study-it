@@ -6,6 +6,8 @@
     <a routerLink="/home">Acasa</a>
     <a *ngIf="isLoggedIn" routerLink="/courses-dashboard">Cursuri</a>
     <a routerLink="/about">Despre</a>
+    <a routerLink="/users-dashboard">Utilizatori</a>
+    <a routerLink="/contact-requests-dashboard">Solicitări contact</a>
   </nav>
   <nav class="right-navbar" *ngIf="!isLoggedIn">
     <a href="/register" class="nav-link" routerLink="register">Înregistrează-te</a>

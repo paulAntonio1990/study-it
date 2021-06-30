@@ -37,6 +37,9 @@ import { TutoringSessionCardComponent } from './components/courses-dashboard/cou
 import { AddTutoringSessionDialogComponent } from './components/courses-dashboard/course-details/course-tutoring-dashboard/add-tutoring-session-dialog/add-tutoring-session-dialog.component';
 import { CourseNameFilterPipe } from './pipes/course-name-filter.pipe';
 import { TutoringSessionComponent } from './components/courses-dashboard/course-details/course-tutoring-dashboard/tutoring-session/tutoring-session.component';
+import { UsersDashboardComponent } from './components/users-dashboard/users-dashboard.component';
+import { ContactRequestsDashboardComponent } from './components/contact-requests-dashboard/contact-requests-dashboard.component';
+import {AgGridModule} from "ag-grid-angular";
 
 @NgModule({
   declarations: [
@@ -59,9 +62,12 @@ import { TutoringSessionComponent } from './components/courses-dashboard/course-
     TutoringSessionCardComponent,
     AddTutoringSessionDialogComponent,
     CourseNameFilterPipe,
-    TutoringSessionComponent
+    TutoringSessionComponent,
+    UsersDashboardComponent,
+    ContactRequestsDashboardComponent
   ],
   imports: [
+    AgGridModule.withComponents([]),
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
