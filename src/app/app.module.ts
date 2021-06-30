@@ -41,6 +41,7 @@ import { UsersDashboardComponent } from './components/users-dashboard/users-dash
 import { ContactRequestsDashboardComponent } from './components/contact-requests-dashboard/contact-requests-dashboard.component';
 import {AgGridModule} from "ag-grid-angular";
 import {MatStepperModule} from "@angular/material/stepper";
+import { ContactComponent } from './components/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +66,8 @@ import {MatStepperModule} from "@angular/material/stepper";
     CourseNameFilterPipe,
     TutoringSessionComponent,
     UsersDashboardComponent,
-    ContactRequestsDashboardComponent
+    ContactRequestsDashboardComponent,
+    ContactComponent
   ],
   imports: [
     AgGridModule.withComponents([]),

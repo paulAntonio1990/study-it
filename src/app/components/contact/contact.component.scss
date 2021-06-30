@@ -1,0 +1,26 @@
+.component-container {
+  position: relative;
+}
+
+.contact-container {
+  margin-top: 5em;
+}
+
+.form-container {
+  margin: auto;
+  width: 80%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 10%);
+}
+
+.form-style {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.form-child-stretch {
+  width: 100%;
+}

@@ -1,0 +1,42 @@
+<div class="container contact-container">
+  <div class="row">
+    <div class="col-sm-6">
+      <h1>Academia Study-IT</h1>
+      <h2>Universitate acreditată în domeniul IT</h2>
+      <br>
+      <h2>Str. Tudor Vladimirescu, nr. 3-7, Sector 6, București</h2>
+      <p><span class="material-icons">mail</span><span> </span>studyit@contact.ro</p>
+      <p><span class="material-icons">phone</span><span> </span>0763 36 36 36</p>
+    </div>
+    <div class="col-sm-6">
+      <div class="component-container">
+        <div class="form-container">
+          <form class="form-style" [formGroup]="addContactRequestFormGroup">
+            <h2>Formular de contact</h2>
+
+            <error-message-display
+              [displayError]="!isControlValid('emailControl', addContactRequestFormGroup) && isFormSubmitted"
+              errorMessage="Introduceți denumirea cursului!">
+            </error-message-display>
+            <mat-form-field appearance="fill" class="form-child-stretch">
+              <input type="email" formControlName="emailControl" matInput placeholder="Adresa email ...">
+            </mat-form-field>
+
+            <error-message-display
+              [displayError]="!isControlValid('bodyControl', addContactRequestFormGroup) && isFormSubmitted"
+              errorMessage="Introduceți o descriere!">
+            </error-message-display>
+            <mat-form-field class="form-child-stretch" appearance="fill">
+              <mat-label>Mesaj contact...</mat-label>
+              <textarea formControlName="bodyControl" matInput></textarea>
+            </mat-form-field>
+          </form>
+
+          <div>
+            <button mat-button color="primary" (click)="onCreate()" cdkFocusInitial>Trimite</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,11 +1,12 @@
 <mat-toolbar color="primary" class="app-toolbar">
   <span>
-    <h1>{{title}}</h1>
+    <img class="logo" src="assets/img/logo.png" alt="Logo">
   </span>
   <nav class="left-navbar">
     <a routerLink="/home">Acasa</a>
     <a *ngIf="isLoggedIn" routerLink="/courses-dashboard">Cursuri</a>
     <a routerLink="/about">Despre</a>
+    <a routerLink="/contact">Contact</a>
     <a routerLink="/users-dashboard">Utilizatori</a>
     <a routerLink="/contact-requests-dashboard">Solicitări contact</a>
   </nav>

@@ -14,6 +14,7 @@ import {MyProfileComponent} from "./components/my-profile/my-profile.component";
 import {TutoringSessionComponent} from "./components/courses-dashboard/course-details/course-tutoring-dashboard/tutoring-session/tutoring-session.component";
 import {UsersDashboardComponent} from "./components/users-dashboard/users-dashboard.component";
 import {ContactRequestsDashboardComponent} from "./components/contact-requests-dashboard/contact-requests-dashboard.component";
+import {ContactComponent} from "./components/contact/contact.component";
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -35,7 +36,8 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'my-profile', component: MyProfileComponent},
   {path: 'users-dashboard', component: UsersDashboardComponent},
-  {path: 'contact-requests-dashboard', component: ContactRequestsDashboardComponent}
+  {path: 'contact-requests-dashboard', component: ContactRequestsDashboardComponent},
+  {path: 'contact', component: ContactComponent},
 ];
 
 @NgModule({
