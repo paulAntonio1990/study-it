@@ -25,6 +25,18 @@ export class AppComponent implements OnInit{
     }
   }
 
+  isStudent() {
+    return this.userRole === 'ROLE_STUDENT';
+  }
+
+  isProfesor() {
+    return this.userRole === 'ROLE_PROFESOR';
+  }
+
+  isAdmin() {
+    return this.userRole === 'ROLE_ADMIN';
+  }
+
   logout(): void {
     this.tokenHandler.signOut();
     window.location.reload();

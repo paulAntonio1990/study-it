@@ -41,7 +41,7 @@
         </mat-select>
       </mat-form-field>
       <mat-form-field appearance="fill" class="margins">
-        <mat-label>Filtrare program studii</mat-label>
+        <mat-label>Filtrare an studii</mat-label>
         <mat-select (selectionChange)="onFilterChange($event)">
           <mat-option>None</mat-option>
           <mat-option *ngFor="let studyYear of studyYears" [value]="{type: 'year', name: studyYear}">
