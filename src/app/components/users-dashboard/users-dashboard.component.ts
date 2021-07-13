@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {UserService} from "../../services/user.service";
+import {CsvExportParams} from "ag-grid-community";
+import {DateService} from "../../services/date.service";
 
 @Component({
   selector: 'app-users-dashboard',
@@ -16,8 +18,10 @@ export class UsersDashboardComponent implements OnInit {
   ];
 
   rowData: any;
+  api: any;
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService,
+              private dateService: DateService) { }
 
   ngOnInit(): void {
     this.loadUsers();
@@ -27,4 +31,15 @@ export class UsersDashboardComponent implements OnInit {
     this.userService.findAllUsers().subscribe(users => this.rowData = users)
   }
 
+  onExport() {
+    const params = {
+      fileName: 'export_users_data_' + this.dateService.getTodayAsString()
+    } as CsvExportParams;
+
+    this.api.exportDataAsCsv(params);
+  }
+
+  onGridReady($event: any) {
+    this.api = $event.api;
+  }
 }

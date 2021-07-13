@@ -42,6 +42,7 @@ import { ContactRequestsDashboardComponent } from './components/contact-requests
 import {AgGridModule} from "ag-grid-angular";
 import {MatStepperModule} from "@angular/material/stepper";
 import { ContactComponent } from './components/contact/contact.component';
+import {DatePipe} from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -92,7 +93,8 @@ import { ContactComponent } from './components/contact/contact.component';
   ],
   providers: [
     {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: true}},
-    authenticationInterceptorProviders
+    authenticationInterceptorProviders,
+    DatePipe
   ],
   exports:[CourseNameFilterPipe],
   bootstrap: [AppComponent]
