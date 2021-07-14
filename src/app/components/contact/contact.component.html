@@ -16,7 +16,7 @@
 
             <error-message-display
               [displayError]="!isControlValid('emailControl', addContactRequestFormGroup) && isFormSubmitted"
-              errorMessage="Introduceți denumirea cursului!">
+              errorMessage="Introduceți adresa de email!">
             </error-message-display>
             <mat-form-field appearance="fill" class="form-child-stretch">
               <input type="email" formControlName="emailControl" matInput placeholder="Adresa email ...">
@@ -24,7 +24,7 @@
 
             <error-message-display
               [displayError]="!isControlValid('bodyControl', addContactRequestFormGroup) && isFormSubmitted"
-              errorMessage="Introduceți o descriere!">
+              errorMessage="Introduceți mesajul de contact!">
             </error-message-display>
             <mat-form-field class="form-child-stretch" appearance="fill">
               <mat-label>Mesaj contact...</mat-label>

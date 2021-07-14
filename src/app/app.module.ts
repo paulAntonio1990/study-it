@@ -41,8 +41,9 @@ import { UsersDashboardComponent } from './components/users-dashboard/users-dash
 import { ContactRequestsDashboardComponent } from './components/contact-requests-dashboard/contact-requests-dashboard.component';
 import {AgGridModule} from "ag-grid-angular";
 import {MatStepperModule} from "@angular/material/stepper";
-import { ContactComponent } from './components/contact/contact.component';
+import {ContactComponent} from './components/contact/contact.component';
 import {DatePipe} from "@angular/common";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @NgModule({
   declarations: [
@@ -68,7 +69,7 @@ import {DatePipe} from "@angular/common";
     TutoringSessionComponent,
     UsersDashboardComponent,
     ContactRequestsDashboardComponent,
-    ContactComponent
+    ContactComponent,
   ],
   imports: [
     AgGridModule.withComponents([]),
@@ -94,7 +95,8 @@ import {DatePipe} from "@angular/common";
   providers: [
     {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: true}},
     authenticationInterceptorProviders,
-    DatePipe
+    DatePipe,
+    MatSnackBar
   ],
   exports:[CourseNameFilterPipe],
   bootstrap: [AppComponent]
