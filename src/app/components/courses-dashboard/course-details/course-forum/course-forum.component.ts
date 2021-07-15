@@ -27,7 +27,6 @@ export class CourseForumComponent implements OnInit {
   }
 
   addPost() {
-    console.log('add post');
     let matDialogRef = this.dialog.open(AddPostDialogComponent,{
       width: '400px',
       height: '400px',
@@ -36,8 +35,10 @@ export class CourseForumComponent implements OnInit {
       }
     });
 
-    matDialogRef.afterClosed().subscribe(() => {
-      window.location.reload();
+    matDialogRef.afterClosed().subscribe( createdPost => {
+      if (createdPost) {
+        window.location.reload();
+      }
     })
   }
 

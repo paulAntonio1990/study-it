@@ -1,0 +1,21 @@
+<div class="component-container">
+  <div class="form-container">
+    <form class="form-style" [formGroup]="addCommentFormGroup">
+
+      <error-message-display
+        [displayError]="!isControlValid('commentControl') && isFormSubmitted"
+        errorMessage="Introduceți comntariul!">
+      </error-message-display>
+      <mat-form-field class="form-child-stretch" appearance="fill">
+        <mat-label>Comentariu...</mat-label>
+        <textarea formControlName="commentControl" matInput
+                  matTextareaAutosize matAutosizeMinRows=10 matAutosizeMaxRows=10></textarea>
+      </mat-form-field>
+    </form>
+
+    <div mat-dialog-actions>
+      <button mat-button (click)="onClose()">Închide</button>
+      <button mat-button color="primary" (click)="onCreate()" cdkFocusInitial>Adaugă</button>
+    </div>
+  </div>
+</div>

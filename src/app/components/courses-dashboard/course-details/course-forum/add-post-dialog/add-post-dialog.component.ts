@@ -50,7 +50,7 @@ export class AddPostDialogComponent implements OnInit {
       this.postService.createPost(this.course.id, postDto)
         .subscribe(createdPost => {
           if (createdPost) {
-            this.dialogRef.close();
+            this.dialogRef.close(createdPost);
           }
         });
     } else {
@@ -75,7 +75,7 @@ export class AddPostDialogComponent implements OnInit {
       id: userFromSession.id,
       userName: userFromSession.userName
     } as UserDto;
-    postDto.creator = user
+    postDto.creator = user;
 
     return postDto;
   }

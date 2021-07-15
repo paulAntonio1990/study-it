@@ -1,5 +1,6 @@
 import {CourseDto} from "./courseDto";
 import {UserDto} from "./userDto";
+import {CommentDto} from "./commentDto";
 
 export interface PostDto {
   id: number;
@@ -8,4 +9,5 @@ export interface PostDto {
   course: CourseDto;
   creator: UserDto;
   date: Date;
+  commentDtos: CommentDto[];
 }
