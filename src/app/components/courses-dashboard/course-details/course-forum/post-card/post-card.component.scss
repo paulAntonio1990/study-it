@@ -1,0 +1,43 @@
+.post-card{
+  border-radius: 4px;
+  margin-top: 1em;
+  cursor: pointer;
+
+  &:hover{
+    color: #2c3a41;
+    background-color: #e6e6e6;
+    left: .3em;
+  }
+}
+
+.img-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-align {
+  margin-left: 1em;
+}
+
+.right-align {
+  text-align: right;
+}
+
+.card-content-container {
+  position: relative;
+}
+
+.center-title {
+  position: absolute;
+  top: 50%;
+}
+
+.header-image {
+  background-image: url('../../../../../../assets/img/forum.png');
+  background-size: cover;
+}
+
+.left-align {
+  margin-left: 2em;
+}

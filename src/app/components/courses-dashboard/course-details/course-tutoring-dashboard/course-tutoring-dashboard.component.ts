@@ -3,7 +3,6 @@ import {Router} from "@angular/router";
 import {CourseDto} from "../../../../domain/courseDto";
 import {CourseService} from "../../../../services/course.service";
 import {TutoringSessionService} from "../../../../services/tutoring-session.service";
-import {TutoringSessionDto} from "../../../../domain/tutoringSessionDto";
 import {MatDialog} from "@angular/material/dialog";
 import {AddTutoringSessionDialogComponent} from "./add-tutoring-session-dialog/add-tutoring-session-dialog.component";
 
@@ -42,7 +41,6 @@ export class CourseTutoringDashboardComponent implements OnInit {
     matDialogRef.afterClosed().subscribe(() => {
       window.location.reload();
     })
-
   }
 
   private getCourseIdFromUrl() {

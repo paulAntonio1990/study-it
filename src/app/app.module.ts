@@ -44,6 +44,8 @@ import {MatStepperModule} from "@angular/material/stepper";
 import {ContactComponent} from './components/contact/contact.component';
 import {DatePipe} from "@angular/common";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import { AddPostDialogComponent } from './components/courses-dashboard/course-details/course-forum/add-post-dialog/add-post-dialog.component';
+import { PostCardComponent } from './components/courses-dashboard/course-details/course-forum/post-card/post-card.component';
 
 @NgModule({
   declarations: [
@@ -70,6 +72,8 @@ import {MatSnackBar} from "@angular/material/snack-bar";
     UsersDashboardComponent,
     ContactRequestsDashboardComponent,
     ContactComponent,
+    AddPostDialogComponent,
+    PostCardComponent,
   ],
   imports: [
     AgGridModule.withComponents([]),

@@ -1,0 +1,13 @@
+<mat-card *ngIf="post" class="post-card">
+  <mat-card-header>
+    <div mat-card-avatar class="header-image"></div>
+    <mat-card-title>{{post.heading}}</mat-card-title>
+    <mat-card-subtitle>Adăugat de {{post.creator.userName}} la data de {{post.date | date: 'medium'}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p>{{post.body}}</p>
+  </mat-card-content>
+  <mat-card-footer class="left-align">
+    <mat-card-subtitle>Comentarii:</mat-card-subtitle>
+  </mat-card-footer>
+</mat-card>

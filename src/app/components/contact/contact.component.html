@@ -28,7 +28,9 @@
             </error-message-display>
             <mat-form-field class="form-child-stretch" appearance="fill">
               <mat-label>Mesaj contact...</mat-label>
-              <textarea formControlName="bodyControl" matInput></textarea>
+              <textarea formControlName="bodyControl" matInput
+                        matTextareaAutosize matAutosizeMinRows=10 matAutosizeMaxRows=10
+              ></textarea>
             </mat-form-field>
           </form>
 

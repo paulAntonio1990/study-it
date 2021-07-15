@@ -1,1 +1,14 @@
-<p>course-forum works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <button class="button-align" mat-raised-button color="primary" (click)="addPost()">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+  </div>
+  <div class="row" *ngFor="let post of course.postDtos">
+    <div class="col-sm-12">
+      <post-card [post]="post"></post-card>
+    </div>
+  </div>
+</div>

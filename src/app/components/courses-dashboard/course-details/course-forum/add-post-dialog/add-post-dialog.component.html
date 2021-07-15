@@ -1,0 +1,29 @@
+<div class="component-container">
+  <div class="form-container">
+    <form class="form-style" [formGroup]="addPostFormGroup">
+
+      <error-message-display
+        [displayError]="!isControlValid('postHeadingControl') && isFormSubmitted"
+        errorMessage="Introduceți titlul postării!">
+      </error-message-display>
+      <mat-form-field appearance="fill" class="form-child-stretch">
+        <input formControlName="postHeadingControl" matInput placeholder="Titlu postare ...">
+      </mat-form-field>
+
+      <error-message-display
+        [displayError]="!isControlValid('postBodyControl') && isFormSubmitted"
+        errorMessage="Introduceți conținutul postării!">
+      </error-message-display>
+      <mat-form-field class="form-child-stretch" appearance="fill">
+        <mat-label>Mesaj postare...</mat-label>
+        <textarea formControlName="postBodyControl" matInput
+                  matTextareaAutosize matAutosizeMinRows=3 matAutosizeMaxRows=7></textarea>
+      </mat-form-field>
+    </form>
+
+    <div mat-dialog-actions>
+      <button mat-button (click)="onClose()">Închide</button>
+      <button mat-button color="primary" (click)="onCreate()" cdkFocusInitial>Adaugă</button>
+    </div>
+  </div>
+</div>
