@@ -14,7 +14,7 @@
       </div>
     </div>
   </mat-card-content>
-  <mat-card-footer class="right-align">
+  <mat-card-footer *ngIf="isLoggedIn && (isAdmin || isProfesor)" class="right-align">
     <button (click)="onDelete(tutoringSession)" mat-raised-button color="warn" class="button-align">
       <mat-icon>delete</mat-icon>
     </button>

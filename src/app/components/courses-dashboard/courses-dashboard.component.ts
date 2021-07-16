@@ -8,6 +8,7 @@ import {MatSelectChange} from "@angular/material/select";
 import {CourseDomain} from "../../domain/courseDomain";
 import {StudyType} from "../../domain/studyType";
 import {StudyYear} from "../../domain/studyYear";
+import {TokenHandlingService} from "../../services/token-handling.service";
 
 @Component({
   selector: 'app-courses-dashboard',
@@ -24,13 +25,23 @@ export class CoursesDashboardComponent implements OnInit {
   studyPrograms = [StudyType.LICENTA, StudyType.MASTERAT, StudyType.DOCTORAT];
   studyYears = [StudyYear.I, StudyYear.II, StudyYear.III];
   filters: any[] = [];
+  isLoggedIn = false;
+  private userRole = '';
 
   constructor(private readonly courseService: CourseService,
-              public dialog: MatDialog) {
+              public dialog: MatDialog,
+              private tokenHandler: TokenHandlingService) {
   }
 
   ngOnInit(): void {
     this.getCourses();
+
+    this.isLoggedIn = !!this.tokenHandler.getToken();
+
+    if (this.isLoggedIn) {
+      const loggedUser = this.tokenHandler.getUser();
+      this.userRole = loggedUser.role;
+    }
   }
 
   getCourses() {
@@ -39,6 +50,14 @@ export class CoursesDashboardComponent implements OnInit {
         this.tmpCourses = courses;
         this.courses = this.tmpCourses;
       });
+  }
+
+  isAdmin() {
+    return this.userRole === 'ROLE_ADMIN';
+  }
+
+  isProfesor() {
+    return this.userRole === 'ROLE_PROFESOR';
   }
 
   addCourse() {

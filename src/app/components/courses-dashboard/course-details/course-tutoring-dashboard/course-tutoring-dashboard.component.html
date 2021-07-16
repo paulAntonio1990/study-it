@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row">
+  <div class="row" *ngIf="isLoggedIn && (isAdmin() || isProfesor())">
     <div class="col-sm-4">
       <button class="button-align" mat-raised-button color="primary" (click)="addTutoringSession()">
         <mat-icon>add</mat-icon>
@@ -8,7 +8,13 @@
   </div>
   <div class="row" *ngFor="let tutoringSession of course.tutoringSessionDtos">
     <div class="col-sm-12">
-      <tutoring-session-card [course]="course"  [tutoringSession]="tutoringSession"></tutoring-session-card>
+      <tutoring-session-card
+        [course]="course"
+        [tutoringSession]="tutoringSession"
+        [isLoggedIn]="isLoggedIn"
+        [isAdmin]="isAdmin()"
+        [isProfesor]="isProfesor()"
+      ></tutoring-session-card>
     </div>
   </div>
 </div>

@@ -13,6 +13,9 @@ import {CoursePreviewDialogComponent} from "../course-preview-dialog/course-prev
 export class CourseCardComponent implements OnInit {
 
   @Input() course!: CourseDto;
+  @Input() isLoggedIn!: boolean;
+  @Input() isAdmin!: boolean;
+  @Input() isProfesor!: boolean;
 
   constructor(private courseService: CourseService,
               public dialog: MatDialog) { }

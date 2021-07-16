@@ -12,6 +12,9 @@ export class TutoringSessionCardComponent implements OnInit {
 
   @Input() course!: CourseDto;
   @Input() tutoringSession!: TutoringSessionDto;
+  @Input() isLoggedIn!: boolean;
+  @Input() isAdmin!: boolean;
+  @Input() isProfesor!: boolean;
 
   constructor(private tutoringService: TutoringSessionService) {
   }
