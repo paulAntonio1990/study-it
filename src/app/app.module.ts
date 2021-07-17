@@ -50,6 +50,7 @@ import { AddCommentDialogComponent } from './components/courses-dashboard/course
 import { ConfirmationDialogComponent } from './components/confirmation-dialog/confirmation-dialog.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { UnauthorizedPageComponent } from './components/unauthorized-page/unauthorized-page.component';
+import {MatPaginatorModule} from "@angular/material/paginator";
 
 @NgModule({
   declarations: [
@@ -102,7 +103,8 @@ import { UnauthorizedPageComponent } from './components/unauthorized-page/unauth
     MatDividerModule,
     MatListModule,
     FormsModule,
-    MatStepperModule
+    MatStepperModule,
+    MatPaginatorModule
   ],
   providers: [
     {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: true}},

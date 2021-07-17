@@ -6,10 +6,10 @@ import {CourseDto} from "../domain/courseDto";
 })
 export class CourseNameFilterPipe implements PipeTransform {
 
-  transform(value: CourseDto[], input: string) {
+  transform(value: CourseDto[], input: string, allCourses: CourseDto[], pageSize: number) {
     if (input) {
       input = input.toLowerCase();
-      return value.filter((course: CourseDto) => course.name.toLowerCase().indexOf(input) > -1);
+      return allCourses.filter((course: CourseDto) => course.name.toLowerCase().indexOf(input) > -1).slice(0, pageSize);
     }
     return value;
   }

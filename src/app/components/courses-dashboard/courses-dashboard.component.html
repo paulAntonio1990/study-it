@@ -58,7 +58,7 @@
       </button>
     </div>
   </div>
-  <div class="row" *ngFor="let course of courses | courseNameFilter : courseNameFilter">
+  <div class="row" *ngFor="let course of activePageDataChunk | courseNameFilter : courseNameFilter : courses : pageSize">
     <div class="col-sm-12">
       <course-card
         [course]="course"
@@ -68,5 +68,8 @@
       ></course-card>
     </div>
   </div>
+
+  <mat-paginator [length]="length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions" (page)="onPageChanged($event)">
+  </mat-paginator>
 </div>
 

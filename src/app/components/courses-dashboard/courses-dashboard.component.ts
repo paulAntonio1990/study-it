@@ -9,6 +9,7 @@ import {CourseDomain} from "../../domain/courseDomain";
 import {StudyType} from "../../domain/studyType";
 import {StudyYear} from "../../domain/studyYear";
 import {TokenHandlingService} from "../../services/token-handling.service";
+import {PageEvent} from "@angular/material/paginator";
 
 @Component({
   selector: 'app-courses-dashboard',
@@ -27,6 +28,13 @@ export class CoursesDashboardComponent implements OnInit {
   filters: any[] = [];
   isLoggedIn = false;
   private userRole = '';
+
+  //paginator
+  length = 0;
+  pageSize = 5;
+  pageSizeOptions = [5, 10, 25];
+  pageEvent!: PageEvent;
+  activePageDataChunk: CourseDto[] = [];
 
   constructor(private readonly courseService: CourseService,
               public dialog: MatDialog,
@@ -49,7 +57,20 @@ export class CoursesDashboardComponent implements OnInit {
       .subscribe(courses => {
         this.tmpCourses = courses;
         this.courses = this.tmpCourses;
+
+        this.length = courses.length;
+        this.activePageDataChunk = this.courses.slice(0, this.pageSize);
       });
+  }
+
+  setPageSizeOptions(setPageSizeOptionsInput: string) {
+    this.pageSizeOptions = setPageSizeOptionsInput.split(',').map(str => +str);
+  }
+
+  onPageChanged(e: any) {
+    let firstCut = e.pageIndex * e.pageSize;
+    let secondCut = firstCut + e.pageSize;
+    this.activePageDataChunk = this.courses.slice(firstCut, secondCut);
   }
 
   isAdmin() {
@@ -83,9 +104,11 @@ export class CoursesDashboardComponent implements OnInit {
     switch (value) {
       case OrderingType.A_Z:
         this.courses = this.courses.sort((first, second) => this.orderAscending(first.name, second.name));
+        this.activePageDataChunk = this.courses.slice(0, this.pageSize);
         break;
       case OrderingType.Z_A:
         this.courses = this.courses.sort((first, second) => (-1) * this.orderAscending(first.name, second.name));
+        this.activePageDataChunk = this.courses.slice(0, this.pageSize);
         break;
     }
   }
@@ -102,6 +125,7 @@ export class CoursesDashboardComponent implements OnInit {
     this.generateFilter($event);
 
     this.courses = this.tmpCourses.filter((c: any) => this.filters.every(filter => c[filter.type] === filter.name));
+    this.activePageDataChunk = this.courses.slice(0, this.pageSize);
   }
 
   private generateFilter($event: MatSelectChange) {
