@@ -49,6 +49,7 @@ import { PostCardComponent } from './components/courses-dashboard/course-details
 import { AddCommentDialogComponent } from './components/courses-dashboard/course-details/course-forum/add-comment-dialog/add-comment-dialog.component';
 import { ConfirmationDialogComponent } from './components/confirmation-dialog/confirmation-dialog.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { UnauthorizedPageComponent } from './components/unauthorized-page/unauthorized-page.component';
 
 @NgModule({
   declarations: [
@@ -80,6 +81,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     AddCommentDialogComponent,
     ConfirmationDialogComponent,
     PageNotFoundComponent,
+    UnauthorizedPageComponent,
   ],
   imports: [
     AgGridModule.withComponents([]),

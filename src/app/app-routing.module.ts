@@ -16,12 +16,16 @@ import {UsersDashboardComponent} from "./components/users-dashboard/users-dashbo
 import {ContactRequestsDashboardComponent} from "./components/contact-requests-dashboard/contact-requests-dashboard.component";
 import {ContactComponent} from "./components/contact/contact.component";
 import {PageNotFoundComponent} from "./components/page-not-found/page-not-found.component";
+import {IsLoggedIdGuard} from "./guards/is-logged-id.guard";
+import {UnauthorizedPageComponent} from "./components/unauthorized-page/unauthorized-page.component";
+import {IsAdminGuard} from "./guards/is-admin.guard";
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: 'home', component: HomeComponent},
-  {path: 'courses-dashboard', component: CoursesDashboardComponent},
+  {path: 'courses-dashboard', component: CoursesDashboardComponent, canActivate: [IsLoggedIdGuard]},
   {path: 'courses-dashboard/:courseId',
+    canActivate: [IsLoggedIdGuard],
     component: CourseDetailsComponent,
     children: [
       {path: '', redirectTo: 'description', pathMatch: 'full'},
@@ -35,10 +39,11 @@ const routes: Routes = [
   {path: 'about', component: AboutComponent},
   {path: 'register', component: RegistrationComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'my-profile', component: MyProfileComponent},
-  {path: 'users-dashboard', component: UsersDashboardComponent},
-  {path: 'contact-requests-dashboard', component: ContactRequestsDashboardComponent},
+  {path: 'my-profile', component: MyProfileComponent, canActivate: [IsLoggedIdGuard]},
+  {path: 'users-dashboard', component: UsersDashboardComponent, canActivate: [IsLoggedIdGuard, IsAdminGuard]},
+  {path: 'contact-requests-dashboard', component: ContactRequestsDashboardComponent, canActivate: [IsLoggedIdGuard, IsAdminGuard]},
   {path: 'contact', component: ContactComponent},
+  {path: 'unauthorized', component: UnauthorizedPageComponent, canActivate: [IsLoggedIdGuard]},
   {path: '**', component: PageNotFoundComponent}
 ];
 
