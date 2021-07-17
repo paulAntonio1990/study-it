@@ -2,17 +2,21 @@
   <mat-step *ngFor="let chapter of chapters; let i = index">
       <ng-template matStepLabel>{{chapter.name}}</ng-template>
       <p>{{chapter.content}}</p>
+    <video width="320" height="240" controls>
+      <source src="/../../../../../assets/video/countdown.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
       <div>
-        <button mat-button matStepperPrevious *ngIf="i > 0">Back</button>
-        <button mat-button matStepperNext>Next</button>
+        <button mat-button matStepperPrevious *ngIf="i > 0">Înapoi</button>
+        <button mat-button matStepperNext>Următorul</button>
       </div>
   </mat-step>
   <mat-step>
-    <ng-template matStepLabel>Done</ng-template>
+    <ng-template matStepLabel>Finalizare</ng-template>
     <p>Felicitări, ați finalizat cursul!</p>
     <div>
-      <button mat-button matStepperPrevious>Back</button>
-      <button mat-button (click)="stepper.reset()">Reset</button>
+      <button mat-button matStepperPrevious>înapoi</button>
+      <button mat-button (click)="stepper.reset()">Reîncepe</button>
     </div>
   </mat-step>
 </mat-stepper>

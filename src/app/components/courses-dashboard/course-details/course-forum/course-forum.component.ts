@@ -4,6 +4,8 @@ import {CourseDto} from "../../../../domain/courseDto";
 import {Router} from "@angular/router";
 import {CourseService} from "../../../../services/course.service";
 import {AddPostDialogComponent} from "./add-post-dialog/add-post-dialog.component";
+import {TokenHandlingService} from "../../../../services/token-handling.service";
+import {UserDto} from "../../../../domain/userDto";
 
 @Component({
   selector: 'app-course-forum',
@@ -13,10 +15,14 @@ import {AddPostDialogComponent} from "./add-post-dialog/add-post-dialog.componen
 export class CourseForumComponent implements OnInit {
 
   course: CourseDto = {} as CourseDto;
+  isLoggedIn = false;
+  private userRole = '';
+  private user!: UserDto;
 
   constructor(private router: Router,
               private courseService: CourseService,
-              public dialog: MatDialog) { }
+              public dialog: MatDialog,
+              private tokenHandler: TokenHandlingService) { }
 
   ngOnInit(): void {
     const courseId = this.getCourseIdFromUrl();
@@ -24,6 +30,26 @@ export class CourseForumComponent implements OnInit {
       .subscribe(course => {
         this.course = course
       });
+
+    this.isLoggedIn = !!this.tokenHandler.getToken();
+
+    if (this.isLoggedIn) {
+      const loggedUser = this.tokenHandler.getUser();
+      this.user = {
+        id: loggedUser.id,
+        email: loggedUser.email,
+        userName: loggedUser.userName,
+        role: loggedUser.role
+      };
+    }
+  }
+
+  isAdmin() {
+    return this.user.role === 'ROLE_ADMIN';
+  }
+
+  isProfesor() {
+    return this.user.role === 'ROLE_PROFESOR';
   }
 
   addPost() {

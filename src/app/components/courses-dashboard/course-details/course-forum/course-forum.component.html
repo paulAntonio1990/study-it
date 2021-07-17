@@ -8,7 +8,13 @@
   </div>
   <div class="row" *ngFor="let post of course.postDtos">
     <div class="col-sm-12">
-      <post-card [post]="post"></post-card>
+      <post-card
+        [post]="post"
+        [isLoggedIn]="isLoggedIn"
+        [isAdmin]="isAdmin()"
+        [isProfesor]="isProfesor()"
+        [user]="user"
+      ></post-card>
     </div>
   </div>
 </div>

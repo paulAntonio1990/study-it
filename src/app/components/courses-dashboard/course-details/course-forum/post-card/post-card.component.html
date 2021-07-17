@@ -11,14 +11,30 @@
     <mat-card-subtitle>Comentarii:</mat-card-subtitle>
     <mat-card-content>
       <mat-card class="comment-align" *ngFor="let comment of post.commentDtos">
-        <mat-card-header>{{comment.body}}</mat-card-header>
-        <mat-card-subtitle>Adaugat de {{comment.creator.userName}} la data de {{comment.date | date: 'medium'}}</mat-card-subtitle>
+        <mat-card-header>
+          <div mat-card-avatar class="comment-header-image"></div>
+          <mat-card-subtitle>{{comment.body}}</mat-card-subtitle>
+          <mat-card-subtitle>Adaugat de {{comment.creator.userName}} la data de {{comment.date | date: 'medium'}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-footer class="right-align">
+          <button
+            *ngIf="isLoggedIn && (isAdmin || isProfesor || userIsSameAsCreatorOnComment(comment))"
+            (click)="onDeleteComment(comment)" mat-raised-button color="warn" class="button-align">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </mat-card-footer>
       </mat-card>
     </mat-card-content>
     <mat-card-subtitle>
       <button class="button-align" mat-raised-button color="primary" (click)="addComment()">
         <mat-icon>add</mat-icon>
       </button>
+      <button
+        *ngIf="isLoggedIn && (isAdmin || isProfesor || userIsSameAsCreatorOnPost())" class="right-align"
+        (click)="onDelete(post)" mat-raised-button color="warn" class="button-align">
+        <mat-icon>delete</mat-icon>
+      </button>
+
     </mat-card-subtitle>
   </mat-card-footer>
 </mat-card>

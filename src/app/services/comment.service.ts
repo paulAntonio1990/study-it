@@ -14,4 +14,8 @@ export class CommentService {
   createComment(postId: number, commentDto: CommentDto): Observable<CommentDto> {
     return this.httpClient.post<CommentDto>(`${this.serverUrl}/comments/${postId}/create`, commentDto);
   }
+
+  deleteComment(id: number): Observable<any> {
+    return this.httpClient.delete<any>(`${this.serverUrl}/comments/${id}`);
+  }
 }

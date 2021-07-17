@@ -15,4 +15,8 @@ export class PostService {
   createPost(courseId: number, postDto: PostDto): Observable<PostDto> {
     return this.httpClient.post<PostDto>(`${this.serverUrl}/posts/${courseId}/create`, postDto);
   }
+
+  deletePost(id: number): Observable<any> {
+    return this.httpClient.delete<any>(`${this.serverUrl}/posts/${id}`);
+  }
 }

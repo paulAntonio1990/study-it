@@ -15,6 +15,7 @@ import {TutoringSessionComponent} from "./components/courses-dashboard/course-de
 import {UsersDashboardComponent} from "./components/users-dashboard/users-dashboard.component";
 import {ContactRequestsDashboardComponent} from "./components/contact-requests-dashboard/contact-requests-dashboard.component";
 import {ContactComponent} from "./components/contact/contact.component";
+import {PageNotFoundComponent} from "./components/page-not-found/page-not-found.component";
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -38,6 +39,7 @@ const routes: Routes = [
   {path: 'users-dashboard', component: UsersDashboardComponent},
   {path: 'contact-requests-dashboard', component: ContactRequestsDashboardComponent},
   {path: 'contact', component: ContactComponent},
+  {path: '**', component: PageNotFoundComponent}
 ];
 
 @NgModule({

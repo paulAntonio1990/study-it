@@ -34,7 +34,12 @@
 }
 
 .header-image {
-  background-image: url('../../../../../../assets/img/forum.png');
+  background-image: url('/../../../../../../assets/img/forum.png');
+  background-size: cover;
+}
+
+.comment-header-image {
+  background-image: url('/../../../../../../assets/img/comment.png');
   background-size: cover;
 }
 
@@ -71,4 +76,8 @@
 
 .comment-align {
   margin-bottom: 0.5em;
+}
+
+.right-align {
+  text-align: right;
 }

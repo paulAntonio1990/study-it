@@ -47,6 +47,8 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 import { AddPostDialogComponent } from './components/courses-dashboard/course-details/course-forum/add-post-dialog/add-post-dialog.component';
 import { PostCardComponent } from './components/courses-dashboard/course-details/course-forum/post-card/post-card.component';
 import { AddCommentDialogComponent } from './components/courses-dashboard/course-details/course-forum/add-comment-dialog/add-comment-dialog.component';
+import { ConfirmationDialogComponent } from './components/confirmation-dialog/confirmation-dialog.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -76,6 +78,8 @@ import { AddCommentDialogComponent } from './components/courses-dashboard/course
     AddPostDialogComponent,
     PostCardComponent,
     AddCommentDialogComponent,
+    ConfirmationDialogComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     AgGridModule.withComponents([]),

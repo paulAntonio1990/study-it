@@ -4,6 +4,7 @@ import {CourseService} from "../../../services/course.service";
 import {MatDialog} from "@angular/material/dialog";
 import {AddCourseDialogComponent} from "../add-course-dialog/add-course-dialog.component";
 import {CoursePreviewDialogComponent} from "../course-preview-dialog/course-preview-dialog.component";
+import {ConfirmationDialogComponent} from "../../confirmation-dialog/confirmation-dialog.component";
 
 @Component({
   selector: 'course-card',
@@ -17,6 +18,7 @@ export class CourseCardComponent implements OnInit {
   @Input() isAdmin!: boolean;
   @Input() isProfesor!: boolean;
 
+
   constructor(private courseService: CourseService,
               public dialog: MatDialog) { }
 
@@ -24,9 +26,20 @@ export class CourseCardComponent implements OnInit {
   }
 
   onDelete(course: CourseDto) {
-    this.courseService.deleteCourse(course.id).subscribe(data => {
-      this.reloadPage();
-    })
+    const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+      maxWidth: "400px",
+      data: {
+        message: 'Sunteți sigur de ștergerea cursului?'
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(dialogResult => {
+      if (dialogResult) {
+        this.courseService.deleteCourse(course.id).subscribe(data => {
+          this.reloadPage();
+        })
+      }
+    });
   }
 
   onEdit(course: CourseDto) {
