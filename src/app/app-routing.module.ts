@@ -28,10 +28,10 @@ const routes: Routes = [
       {path: 'description', component: CourseDescriptionComponent},
       {path: 'content', component: CourseContentComponent},
       {path: 'tutoring-dashboard', component: CourseTutoringDashboardComponent},
-      {path: 'forum', component: CourseForumComponent}
+      {path: 'forum', component: CourseForumComponent},
+      {path: 'tutoring-dashboard/:sessionId', component: TutoringSessionComponent}
     ]
   },
-  {path: 'tutoring-dashboard/:sessionId', component: TutoringSessionComponent}, //todo
   {path: 'about', component: AboutComponent},
   {path: 'register', component: RegistrationComponent},
   {path: 'login', component: LoginComponent},

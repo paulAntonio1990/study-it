@@ -2,7 +2,7 @@
           class="session-card">
   <mat-card-content
     class="session-card-content"
-    [routerLink]="['/tutoring-dashboard', tutoringSession.id]"
+    [routerLink]="['./', tutoringSession.id]"
     [state]="{data: tutoringSession}"
     (click)="openSession()">
     <div class="container">
