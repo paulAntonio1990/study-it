@@ -16,14 +16,14 @@
       <div class="col-sm-6">
         <h1>Cuprins</h1>
         <mat-divider></mat-divider>
-        <mat-list>
-          <mat-list-item> 1. Capitolul 1 </mat-list-item>
-          <mat-list-item> 2. Capitolul 2 </mat-list-item>
-          <mat-list-item> 3. Capitolul 3</mat-list-item>
-          <mat-list-item> 3. Capitolul 4</mat-list-item>
-          <mat-list-item> 3. Capitolul 5</mat-list-item>
-          <mat-list-item> 3. Capitolul 6</mat-list-item>
-          <mat-list-item> 3. Capitolul 7</mat-list-item>
+        <mat-list *ngIf="course.content.chapters">
+          <mat-list-item *ngFor="let chapter of course.content.chapters; let i = index"> {{i + 1}}. {{chapter.name}}</mat-list-item>
+<!--          <mat-list-item> 2. Capitolul 2 </mat-list-item>-->
+<!--          <mat-list-item> 3. Capitolul 3</mat-list-item>-->
+<!--          <mat-list-item> 3. Capitolul 4</mat-list-item>-->
+<!--          <mat-list-item> 3. Capitolul 5</mat-list-item>-->
+<!--          <mat-list-item> 3. Capitolul 6</mat-list-item>-->
+<!--          <mat-list-item> 3. Capitolul 7</mat-list-item>-->
         </mat-list>
       </div>
     </div>

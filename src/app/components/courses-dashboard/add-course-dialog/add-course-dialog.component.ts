@@ -3,7 +3,7 @@ import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {CourseDomain} from "../../../domain/courseDomain";
 import {StudyType} from "../../../domain/studyType";
 import {StudyYear} from "../../../domain/studyYear";
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {FormArray, FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {CourseService} from "../../../services/course.service";
 import {CourseDto} from "../../../domain/courseDto";
 import {FieldValidationServiceService} from "../../../services/field-validation-service.service";
@@ -24,6 +24,7 @@ export class AddCourseDialogComponent implements OnInit{
   addCourseFormGroup! : FormGroup;
   isFormSubmitted = false;
   course!: CourseDto;
+  chaptersFGs: FormGroup[] = [];
 
   constructor(
     public dialogRef: MatDialogRef<AddCourseDialogComponent>,
@@ -43,22 +44,40 @@ export class AddCourseDialogComponent implements OnInit{
       courseStudyProgramControl: ['', Validators.required],
       courseYearControl: ['', Validators.required],
       courseShortDescriptionControl: ['', Validators.required],
-      courseLongDescriptionControl: ['', Validators.required]
+      courseLongDescriptionControl: ['', Validators.required],
+      chapters: this.formBuilder.array(this.chaptersFGs)
     });
   }
 
+  get chapters() {
+    return this.addCourseFormGroup.controls['chapters'] as FormArray;
+  }
+
+  addChapter() {
+    const chapterForm = this.formBuilder.group({
+      chapterNameControl: ['', Validators.required]
+    });
+
+    this.chapters.push(chapterForm);
+  }
+
+  deleteChapter(chapterIndex: number) {
+    this.chapters.removeAt(chapterIndex);
+  }
+
   onClose() {
-    this.dialogRef.close();
+    this.dialogRef.close(false);
   }
 
   onCreate() {
     this.isFormSubmitted = true;
+
     if (this.addCourseFormGroup.valid) {
       const courseDto = this.createDtoFromForm();
 
       this.courseService.createCourse(courseDto).subscribe(createdCourse => {
         if (createdCourse) {
-          this.dialogRef.close();
+          this.dialogRef.close(true);
         }
       });
     } else {
@@ -77,6 +96,17 @@ export class AddCourseDialogComponent implements OnInit{
   }
 
   private createDtoFromForm() {
+    const chapters = [];
+    for(let value of this.chapters.getRawValue()) {
+      console.log('value = ', value);
+      const chapter = {
+        name: value.chapterNameControl
+      }
+      chapters.push(chapter)
+    }
+
+    const chaptersV = this.chapters.getRawValue();
+
     return {
       id: this.addCourseFormGroup.get('courseIdControl')?.value,
       name: this.addCourseFormGroup.get('courseNameControl')?.value,
@@ -88,13 +118,14 @@ export class AddCourseDialogComponent implements OnInit{
       },
       content: {
         shortDescription: this.addCourseFormGroup.get('courseShortDescriptionControl')?.value,
-        longDescription: this.addCourseFormGroup.get('courseLongDescriptionControl')?.value
+        longDescription: this.addCourseFormGroup.get('courseLongDescriptionControl')?.value,
+        chapters: chapters
       }
     } as CourseDto;
   }
 
-  isControlValid(name: string): boolean {
-    return this.fieldValidationService.isValid(name, this.addCourseFormGroup);
+  isControlValid(name: string, formGroup: FormGroup): boolean {
+    return this.fieldValidationService.isValid(name, formGroup);
   }
 
   private rebuildForm() {
@@ -117,7 +148,7 @@ export class AddCourseDialogComponent implements OnInit{
 
       this.courseService.createCourse(courseDto).subscribe(createdCourse => {
         if (createdCourse) {
-          this.dialogRef.close();
+          this.dialogRef.close(true);
         }
       });
     } else {

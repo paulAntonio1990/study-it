@@ -52,8 +52,10 @@ export class CourseCardComponent implements OnInit {
         }
       });
 
-    dialogRef.afterClosed().subscribe(() => {
-      this.reloadPage();
+    dialogRef.afterClosed().subscribe((dialogResult) => {
+      if (dialogResult) {
+        this.reloadPage();
+      }
     })
   }
 

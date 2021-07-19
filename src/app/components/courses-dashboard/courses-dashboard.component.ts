@@ -91,8 +91,10 @@ export class CoursesDashboardComponent implements OnInit {
         }
       });
 
-    dialogRef.afterClosed().subscribe(() => {
-      window.location.reload();
+    dialogRef.afterClosed().subscribe((dialogResult) => {
+      if (dialogResult) {
+        window.location.reload();
+      }
     })
   }
 

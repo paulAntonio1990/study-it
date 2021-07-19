@@ -1,7 +1,6 @@
-<mat-stepper orientation="vertical" [linear]="isLinear" #stepper>
-  <mat-step *ngFor="let chapter of chapters; let i = index">
+<mat-stepper orientation="vertical" [linear]="isLinear" #stepper *ngIf="course?.content?.chapters">
+  <mat-step *ngFor="let chapter of course.content.chapters; let i = index">
       <ng-template matStepLabel>{{chapter.name}}</ng-template>
-      <p>{{chapter.content}}</p>
     <video width="320" height="240" controls>
       <source src="/../../../../../assets/video/countdown.mp4" type="video/mp4">
       Your browser does not support the video tag.

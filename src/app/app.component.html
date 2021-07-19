@@ -9,13 +9,14 @@
     <a routerLink="/contact">Contact</a>
     <a *ngIf="isLoggedIn && isAdmin()" routerLink="/users-dashboard">Utilizatori</a>
     <a *ngIf="isLoggedIn && isAdmin()" routerLink="/contact-requests-dashboard">Solicitări contact</a>
-    <span *ngIf="isStudent() || isProfesor()" class="stud-prof-spacer"></span>
-    <span *ngIf="isAdmin()" class="admin-spacer"></span>
-    <span *ngIf="!isLoggedIn" class="default-spacer"></span>
+  </nav>
+  <span class="spacer"></span>
+  <nav class="left-navbar">
     <a *ngIf="!isLoggedIn" href="/register" class="nav-link" routerLink="register">Înregistrează-te</a>
     <a *ngIf="!isLoggedIn" href="/login" class="nav-link" routerLink="login">Login</a>
     <a *ngIf="isLoggedIn" href="/my-profile" class="nav-link" routerLink="my-profile">{{ username }}<span class="material-icons">person</span></a>
     <a *ngIf="isLoggedIn" href class="nav-link" (click)="logout()">LogOut</a>
   </nav>
+
 </mat-toolbar>
 <router-outlet></router-outlet>
